@@ -9,24 +9,45 @@ switch (current_game_state)
 	
 	// Logic for while the game is playing.
 	case GAME_STATE.PLAYING:
-		
-		// Checks the current speed is less than the max speed allowed.
-		if (current_speed < max_speed)
-		{
-			// Limit lowest possible speed so not zero.
-			current_speed = max(current_speed, 0.01);
+	
+		// PLEASE REWORK THIS LATER!!!!
+		// Checks if new max speed has changed.
+		if (new_max_speed != "" && real(new_max_speed) != max_speed)
+		{	
 			
-			// Increment the current speed over time.
-			current_speed += current_speed * speed_up_rate * _delta_time
+			// Adjusts the percentage.
+			current_speed_percentage = 0;
+			// Sets max speed to new value.
+			max_speed = new_max_speed;
 		}
 		
-		// Limit to maximum speed;
-		current_speed = min(current_speed, max_speed);
+		// Check if speed is less than target.
+		if (current_speed_percentage < target_speed_percentage)
+		{
+			// Speed up at rate.
+			current_speed_percentage += speed_up_rate * _delta_time;
+			
+			// Limit speed to target.
+			current_speed_percentage = min(current_speed_percentage, target_speed_percentage);
 		
-		//smoothstep();
+			// Interpolate speed using smoothstep curve.
+			current_speed = smoothstep(min_speed, max_speed, current_speed_percentage);
+		}
+		// Check if speed is greater than target.
+		else if (current_speed_percentage > target_speed_percentage)
+		{
+			// Slow down at rate.
+			current_speed_percentage -= speed_down_rate * _delta_time;
+			
+			// Limit speed to target.
+			current_speed_percentage = max(current_speed_percentage, target_speed_percentage);
 		
-		// Add current speed to distance traveled
-		current_distance += current_speed;
+			// Interpolate speed using smoothstep curve.
+			current_speed = smoothstep(min_speed, max_speed, current_speed_percentage);
+		}
+		
+		// Add current speed to distance traveled.
+		current_distance += current_speed * _delta_time;
 		
 		break;
 		
