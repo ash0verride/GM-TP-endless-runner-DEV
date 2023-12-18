@@ -7,4 +7,5 @@ if (keyboard_check_direct(vk_shift) && keyboard_check_pressed(vk_tab))
 if (global.active_debug_menu)
 {
 	game_state = get_gamestate();
+	interior_state = get_interiorstate();
 }

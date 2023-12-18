@@ -6,7 +6,22 @@ if (x < 0)
 {
 	before_sprite = sprite_index;
 	sprite_index = after_sprite;
-	after_sprite = choose(sprite_1, sprite_2, sprite_3, sprite_4);
+	
+	switch(after_sprite)
+	{
+		case sprite[0]:
+			after_sprite = sprite[0];
+			break;
+		case sprite[1]:
+			after_sprite = sprite[1];
+			break;
+		case sprite[2]:
+			after_sprite = sprite[2];
+			break;
+		case sprite[3]:
+			after_sprite = sprite[3];
+			break;
+	}
 	
 	x += sprite_width;
 }

@@ -23,7 +23,7 @@ current_distance = 0;
 current_game_state = GAME_STATE.PLAYING;
 
 min_speed = 0.0;
-max_speed = 4.0;
+max_speed = 400.0;
 new_max_speed = max_speed;
 
 current_speed = 0.0;
@@ -35,5 +35,7 @@ speed_down_rate = 0.2;
 
 // Game objects for room
 instance_create_layer(0, 0, "Farground", obj_far_background);
+instance_create_layer(0, 0, "Midground", obj_interior_background);
 instance_create_layer(0, 0, "Midground", obj_mid_background);
-//instance_create_layer(0, 0, "Foreground", obj_front_ground);
+instance_create_layer(0, 0, "Foreground", obj_front_floor);
+instance_create_layer(0, 0, "Foreground", obj_front_ceiling);

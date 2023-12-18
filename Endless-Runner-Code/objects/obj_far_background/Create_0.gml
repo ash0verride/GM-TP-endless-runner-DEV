@@ -1,10 +1,12 @@
-sprite_1 = spr_farground_1;
-sprite_2 = spr_farground_2;
-sprite_3 = spr_farground_3;
+sprites[0] = spr_farground_1;
+sprites[1] = spr_farground_2;
+sprites[2] = spr_farground_3;
 
-before_sprite = choose(sprite_1, sprite_2, sprite_3);
-sprite_index = choose(sprite_1, sprite_2, sprite_3);
-after_sprite = choose(sprite_1, sprite_2, sprite_3);
+sprite_prefetch_multi(sprites);
+
+before_sprite = sprites[0];
+sprite_index = sprites[1];
+after_sprite = sprites[2];
 
 x = random_range(0, sprite_width);
 y = 0;

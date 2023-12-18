@@ -25,3 +25,21 @@ function get_gamestate()
 	
 	return "Unset";
 }
+
+// Function that returns the current wallstate as a string
+function get_interiorstate()
+{
+	switch(obj_interior_background.current_interior_state)
+	{
+		case INTERIOR_STATE.ENTER:
+			return "Enter";
+		case INTERIOR_STATE.EXIT:
+			return "Exit";
+		case INTERIOR_STATE.INSIDE:
+			return "Inside";
+		case INTERIOR_STATE.OUTSIDE:
+			return "Outside";
+	}
+	
+	return "Unset";
+}
