@@ -9,6 +9,12 @@ enum INTERIOR_STATE
 
 current_interior_state = INTERIOR_STATE.OUTSIDE;
 
+current_wall_state = INTERIOR_STATE.OUTSIDE;
+current_ground_state = INTERIOR_STATE.OUTSIDE;
+current_pipe_state = INTERIOR_STATE.OUTSIDE;
+
+has_wall_changed = false;
+
 wall_segment_count = 3;
 
 wall_sprite[0] = spr_wall_1;
@@ -37,10 +43,6 @@ pipe_x_coords = array_create(wall_segment_count, 0);
 
 pipe_y_coords = 0;
 
-has_pipe_exited = true;
-has_pipe_entered = true;
-is_pipe_exit_ready = false;
-
 ground_segment_count = 5;
 
 ground_sprite[0] = spr_runway_inside_start;
@@ -63,9 +65,6 @@ for (var _i = 0; _i < ground_segment_count; _i++)
 
 ground_y_coords = 610;
 
-has_ground_entered = true;
-has_ground_exited = true;
-is_ground_exit_ready = false;
 
 background_move_rate = 1.0;
 
@@ -73,17 +72,21 @@ interior_state_switch = function()
 {
 	switch (current_interior_state)
 	{
-		case INTERIOR_STATE.ENTER:
-			current_interior_state = INTERIOR_STATE.INSIDE;
-			break;
 		case INTERIOR_STATE.INSIDE:
-			current_interior_state = INTERIOR_STATE.EXIT;
-			break;
-		case INTERIOR_STATE.EXIT:
-			current_interior_state = INTERIOR_STATE.OUTSIDE;
+			if (current_wall_state == INTERIOR_STATE.INSIDE &&
+				current_ground_state == INTERIOR_STATE.INSIDE &&
+				current_pipe_state == INTERIOR_STATE.INSIDE)
+			{
+				current_interior_state = INTERIOR_STATE.EXIT;
+			}
 			break;
 		case INTERIOR_STATE.OUTSIDE:
-			current_interior_state = INTERIOR_STATE.ENTER;
+			if (current_wall_state == INTERIOR_STATE.OUTSIDE &&
+				current_ground_state == INTERIOR_STATE.OUTSIDE &&
+				current_pipe_state == INTERIOR_STATE.OUTSIDE)
+			{
+				current_interior_state = INTERIOR_STATE.ENTER;
+			}
 			break;
 	}
 }

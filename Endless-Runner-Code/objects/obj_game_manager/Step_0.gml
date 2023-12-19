@@ -14,7 +14,6 @@ switch (current_game_state)
 		// Checks if new max speed has changed.
 		if (new_max_speed != "" && real(new_max_speed) != max_speed)
 		{	
-			
 			// Adjusts the percentage.
 			current_speed_percentage = 0;
 			// Sets max speed to new value.

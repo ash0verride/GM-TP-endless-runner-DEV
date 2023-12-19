@@ -1,8 +1,6 @@
-var _delta_time = delta_time * 0.000001;
-
 for (var _i = 0; _i < fauna_count; _i++)
 {
-	x_coords[_i] -= obj_game_manager.current_speed * move_rate * _delta_time;
+	x_coords[_i] -= obj_game_manager.current_speed * move_rate;
 
 	if (x_coords[_i] + sprite_get_width(set_sprites[_i]) < 0)
 	{	
@@ -33,11 +31,7 @@ for (var _i = 0; _i < fauna_count; _i++)
 	
 	if (x_coords[_i] > room_width)
 	{	
-		if (obj_interior_background.current_interior_state == INTERIOR_STATE.OUTSIDE && obj_interior_background.has_ground_exited)
-		{
-			set_alphas[_i] = 1.0;	
-		}
-		else if (obj_interior_background.current_interior_state == INTERIOR_STATE.INSIDE && !obj_interior_background.has_ground_entered)
+		if (obj_interior_background.current_ground_state == INTERIOR_STATE.OUTSIDE)
 		{
 			set_alphas[_i] = 1.0;	
 		}

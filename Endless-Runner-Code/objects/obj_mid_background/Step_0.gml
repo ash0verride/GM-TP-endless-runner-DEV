@@ -1,6 +1,4 @@
-var _delta_time = delta_time * 0.000001;
-
-x -= obj_game_manager.current_speed * background_move_rate * _delta_time;
+x -= obj_game_manager.current_speed * background_move_rate;
 
 if (x < 0)
 {

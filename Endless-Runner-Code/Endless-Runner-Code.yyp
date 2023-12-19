@@ -78,7 +78,7 @@
     {"id":{"name":"spr_midground_2","path":"sprites/spr_midground_2/spr_midground_2.yy",},},
     {"id":{"name":"spr_gold_icon","path":"sprites/spr_gold_icon/spr_gold_icon.yy",},},
     {"id":{"name":"spr_foreground_celing_1","path":"sprites/spr_foreground_celing_1/spr_foreground_celing_1.yy",},},
-    {"id":{"name":"spr_character_hadow","path":"sprites/spr_character_hadow/spr_character_hadow.yy",},},
+    {"id":{"name":"spr_character_shadow","path":"sprites/spr_character_shadow/spr_character_shadow.yy",},},
     {"id":{"name":"spr_alert_final","path":"sprites/spr_alert_final/spr_alert_final.yy",},},
     {"id":{"name":"spr_foreground_floor_4","path":"sprites/spr_foreground_floor_4/spr_foreground_floor_4.yy",},},
     {"id":{"name":"spr_wall_start","path":"sprites/spr_wall_start/spr_wall_start.yy",},},
@@ -124,6 +124,7 @@
     {"id":{"name":"spr_runway_inside_end","path":"sprites/spr_runway_inside_end/spr_runway_inside_end.yy",},},
     {"id":{"name":"spr_button_panel","path":"sprites/spr_button_panel/spr_button_panel.yy",},},
     {"id":{"name":"spr_alert_start","path":"sprites/spr_alert_start/spr_alert_start.yy",},},
+    {"id":{"name":"obj_shadow","path":"objects/obj_shadow/obj_shadow.yy",},},
     {"id":{"name":"rm_main","path":"rooms/rm_main/rm_main.yy",},},
   ],
   "RoomOrderNodes": [
