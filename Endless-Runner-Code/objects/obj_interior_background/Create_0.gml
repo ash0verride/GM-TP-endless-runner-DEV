@@ -65,10 +65,9 @@ for (var _i = 0; _i < ground_segment_count; _i++)
 
 ground_y_coords = 610;
 
-
 background_move_rate = 1.0;
 
-interior_state_switch = function()
+change_interior_state = function()
 {
 	switch (current_interior_state)
 	{
@@ -79,7 +78,8 @@ interior_state_switch = function()
 			{
 				current_interior_state = INTERIOR_STATE.EXIT;
 			}
-			break;
+		break;
+		
 		case INTERIOR_STATE.OUTSIDE:
 			if (current_wall_state == INTERIOR_STATE.OUTSIDE &&
 				current_ground_state == INTERIOR_STATE.OUTSIDE &&
@@ -87,6 +87,6 @@ interior_state_switch = function()
 			{
 				current_interior_state = INTERIOR_STATE.ENTER;
 			}
-			break;
+		break;
 	}
 }

@@ -9,54 +9,30 @@ switch (current_game_state)
 	
 	// Logic for while the game is playing.
 	case GAME_STATE.PLAYING:
-	
-		// PLEASE REWORK THIS LATER!!!!
-		// Checks if new max speed has changed.
-		if (new_max_speed != "" && real(new_max_speed) != max_speed)
-		{	
-			// Adjusts the percentage.
-			current_speed_percentage = 0;
-			// Sets max speed to new value.
-			max_speed = new_max_speed;
-		}
+		update_speed(_delta_time);
 		
-		// Check if speed is less than target.
-		if (current_speed_percentage < target_speed_percentage)
+		background_cooldown -= _delta_time;
+		if (background_cooldown <= 0)
 		{
-			// Speed up at rate.
-			current_speed_percentage += speed_up_rate * _delta_time;
-			
-			// Limit speed to target.
-			current_speed_percentage = min(current_speed_percentage, target_speed_percentage);
-		
-			// Interpolate speed using smoothstep curve.
-			current_speed = smoothstep(min_speed, max_speed, current_speed_percentage);
-		}
-		// Check if speed is greater than target.
-		else if (current_speed_percentage > target_speed_percentage)
-		{
-			// Slow down at rate.
-			current_speed_percentage -= speed_down_rate * _delta_time;
-			
-			// Limit speed to target.
-			current_speed_percentage = max(current_speed_percentage, target_speed_percentage);
-		
-			// Interpolate speed using smoothstep curve.
-			current_speed = smoothstep(min_speed, max_speed, current_speed_percentage);
+			obj_interior_background.change_interior_state();
+			background_cooldown = random_range(5, 15);
 		}
 		
-		// Add current speed to distance traveled.
-		current_distance += current_speed * _delta_time;
-		
-		break;
-		
+	break;
 	case GAME_STATE.DYING:
+		update_speed(_delta_time);
+		
+		if (current_speed == 0 && obj_player.image_alpha == 0)
+		{
+			current_game_state = GAME_STATE.ENDED;	
+		}
 	break;
 	case GAME_STATE.ENDED:
 	break;
 	case GAME_STATE.PAUSED:
 	break;
 	case GAME_STATE.TUTORIAL:
+		update_speed(_delta_time);
 	break;
 }
 

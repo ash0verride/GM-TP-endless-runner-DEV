@@ -1,12 +1,12 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_player",
+  "name": "obj_shield",
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":7,"eventType":7,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
@@ -31,8 +31,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_character_run",
-    "path": "sprites/spr_character_run/spr_character_run.yy",
+    "name": "spr_shield_on",
+    "path": "sprites/spr_shield_on/spr_shield_on.yy",
   },
   "spriteMaskId": null,
   "visible": true,

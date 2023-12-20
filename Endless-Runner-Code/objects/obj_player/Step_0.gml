@@ -5,7 +5,7 @@ var _delta_time = delta_time * 0.000001;
 switch (obj_game_manager.current_game_state)
 {
 	case GAME_STATE.IDLE:
-	break;
+		break;
 	
 	// Logic for while the game is playing.
 	case GAME_STATE.PLAYING:
@@ -14,7 +14,15 @@ switch (obj_game_manager.current_game_state)
 		{
 			y_velo += jump_strength * _delta_time;
 			
-			if (y_velo > jump_threshold)
+			if (sprite_index == spr_character_run || sprite_index == spr_character_idle)
+			{
+				if (sprite_index != spr_character_idle)
+				{
+					sprite_index = spr_character_idle;
+					image_index = 0;
+				}
+			}
+			else if (y_velo > jump_threshold)
 			{
 				sprite_index = spr_character_fly_big;
 			}
@@ -27,11 +35,54 @@ switch (obj_game_manager.current_game_state)
 		{
 			sprite_index = spr_character_fly_release;
 		}
+		
+		if (keyboard_check_pressed(ord("B")))
+		{
+			is_boosting = !is_boosting;
+		}
+		
+		if (is_boosting)
+		{
+			obj_game_manager.target_speed_percentage = 1.0;
+		}
+		else
+		{
+			obj_game_manager.target_speed_percentage = 0.5;
+		}
+		
+		if (keyboard_check_pressed(ord("D")))
+		{
+			obj_game_manager.current_game_state = GAME_STATE.DYING;
+			
+			var _player = self;
+			with (obj_shadow)
+			{
+				if (owner == _player)
+				{
+					fade_out(1.83);	
+				}
+			}
+		}
+		
+		if (keyboard_check_pressed(ord("P")))
+		{
+			var _shield = instance_create_layer(x, y, "StageFront", obj_shield);
+			_shield.life = 5.0;
+		}
 	
 		break;
 		
 	case GAME_STATE.DYING:
-	break;
+	
+		if (sprite_index != spr_character_death)
+		{
+			sprite_index = spr_character_death;
+			image_index = 0;
+			obj_game_manager.target_speed_percentage = 0.0;
+		}
+	
+		break;
+		
 	case GAME_STATE.ENDED:
 	break;
 	case GAME_STATE.PAUSED:
@@ -54,5 +105,15 @@ if (y > ystart)
 	{
 		sprite_index = spr_character_run;
 	}
+}
+else if (y < 0)
+{
+	y = 0;
+	y_velo = 0.0;
+}
+
+if (is_boosting && obj_game_manager.current_game_state == GAME_STATE.PLAYING)
+{
+	sprite_index = spr_character_boost;	
 }
 

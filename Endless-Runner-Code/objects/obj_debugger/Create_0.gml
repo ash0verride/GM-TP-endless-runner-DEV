@@ -19,7 +19,7 @@ interior_state = "";
 dbg_watch(ref_create(self, "interior_state"), "Interior State");
 button_interior = function()
 {
-	obj_interior_background.interior_state_switch();	
+	obj_interior_background.change_interior_state();	
 }
 dbg_button("Change Interior", ref_create(self, "button_interior"), 240, 30);
 

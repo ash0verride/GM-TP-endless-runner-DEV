@@ -19,6 +19,7 @@ enum GAME_STATE
 // Variables.
 current_level = 0;
 current_distance = 0;
+current_gold = 0;
 
 current_game_state = GAME_STATE.PLAYING;
 
@@ -33,6 +34,8 @@ target_speed_percentage = 0.5;
 speed_up_rate = 0.2;
 speed_down_rate = 0.5;
 
+background_cooldown = random_range(5, 15);
+
 // Game objects for room
 instance_create_layer(0, 0, "Farground", obj_far_background);
 instance_create_layer(0, 0, "Midground", obj_interior_background);
@@ -41,3 +44,44 @@ instance_create_layer(0, 0, "Foreground", obj_front_floor);
 instance_create_layer(0, 0, "Foreground", obj_front_ceiling);
 
 instance_create_layer(0, 0, "Stage", obj_player);
+
+update_speed = function(_delta_time)
+{
+	// PLEASE REWORK THIS LATER!!!!
+	// Checks if new max speed has changed.
+	if (new_max_speed != "" && real(new_max_speed) != max_speed)
+	{	
+		// Adjusts the percentage.
+		current_speed_percentage = 0;
+		// Sets max speed to new value.
+		max_speed = new_max_speed;
+	}
+	
+	// Check if speed is less than target.
+	if (current_speed_percentage < target_speed_percentage)
+	{
+		// Speed up at rate.
+		current_speed_percentage += speed_up_rate * _delta_time;
+		
+		// Limit speed to target.
+		current_speed_percentage = min(current_speed_percentage, target_speed_percentage);
+	
+		// Interpolate speed using smoothstep curve.
+		current_speed = smoothstep(min_speed, max_speed, current_speed_percentage);
+	}
+	// Check if speed is greater than target.
+	else if (current_speed_percentage > target_speed_percentage)
+	{
+		// Slow down at rate.
+		current_speed_percentage -= speed_down_rate * _delta_time;
+		
+		// Limit speed to target.
+		current_speed_percentage = max(current_speed_percentage, target_speed_percentage);
+	
+		// Interpolate speed using smoothstep curve.
+		current_speed = smoothstep(min_speed, max_speed, current_speed_percentage);
+	}
+	
+	// Add current speed to distance traveled.
+	current_distance += current_speed * _delta_time;
+}

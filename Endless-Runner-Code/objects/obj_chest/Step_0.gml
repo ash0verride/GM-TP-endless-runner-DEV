@@ -1,0 +1,1 @@
+x -= obj_game_manager.current_speed * 1.0;
