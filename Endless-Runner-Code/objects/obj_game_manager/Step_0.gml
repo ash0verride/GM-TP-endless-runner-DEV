@@ -18,6 +18,13 @@ switch (current_game_state)
 			background_cooldown = random_range(5, 15);
 		}
 		
+		chest_cooldown -= _delta_time;
+		if (chest_cooldown <= 0)
+		{
+			instance_create_layer(room_width + 244, 896, "Stage", obj_chest);
+			chest_cooldown = random_range(10, 20);
+		}
+		
 	break;
 	case GAME_STATE.DYING:
 		update_speed(_delta_time);

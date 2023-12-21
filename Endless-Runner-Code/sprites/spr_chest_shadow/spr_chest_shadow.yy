@@ -23,7 +23,7 @@
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"758d45b8-9956-469c-a082-9d10b403592b","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 4,
+  "origin": 9,
   "parent": {
     "name": "Chest",
     "path": "folders/Sprites/Actors/Chest.yy",
@@ -59,7 +59,7 @@
     ],
     "visibleRange": null,
     "volume": 1.0,
-    "xorigin": 147,
+    "xorigin": 162,
     "yorigin": 43,
   },
   "swatchColours": null,

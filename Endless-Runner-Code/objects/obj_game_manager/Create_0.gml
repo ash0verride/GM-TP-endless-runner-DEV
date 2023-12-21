@@ -35,6 +35,7 @@ speed_up_rate = 0.2;
 speed_down_rate = 0.5;
 
 background_cooldown = random_range(5, 15);
+chest_cooldown = random_range(10,20);
 
 // Game objects for room
 instance_create_layer(0, 0, "Farground", obj_far_background);
