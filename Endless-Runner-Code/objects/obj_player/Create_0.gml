@@ -9,6 +9,7 @@ gravity_strength = 0.9;
 y_velo = 0.0;
 
 is_boosting = false;
+boost_cooldown = 0;
 
 var _shadow = instance_create_layer(x, y, "StageShadows", obj_shadow);
 _shadow.owner = self;

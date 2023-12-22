@@ -1,5 +1,5 @@
 // Debug Scripts
-function bug_restart_room()
+function bug_restart()
 {
 	game_restart();
 	show_debug_message("Room restarted");

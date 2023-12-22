@@ -39,11 +39,23 @@ switch (obj_game_manager.current_game_state)
 		if (keyboard_check_pressed(ord("B")))
 		{
 			is_boosting = !is_boosting;
+			
+			if (is_boosting)
+			{
+				obj_player.boost_cooldown += 5;
+			}
 		}
 		
 		if (is_boosting)
 		{
 			obj_game_manager.target_speed_percentage = 1.0;
+			boost_cooldown -= _delta_time;
+			
+			if (boost_cooldown <= 0)
+			{
+				is_boosting = false;
+				boost_cooldown = 0;
+			}
 		}
 		else
 		{
