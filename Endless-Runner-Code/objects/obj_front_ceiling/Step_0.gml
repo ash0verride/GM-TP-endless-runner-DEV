@@ -32,7 +32,7 @@ for (var _i = 0; _i < fauna_count; _i++)
 	{	
 		if (obj_interior_background.current_pipe_state == INTERIOR_STATE.OUTSIDE)
 		{
-			set_alphas[_i] = 1.0;	
+			set_alphas[_i] = 0.8;	
 		}
 		else
 		{

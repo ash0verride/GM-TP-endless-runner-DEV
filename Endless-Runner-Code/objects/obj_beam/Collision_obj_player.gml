@@ -1,0 +1,1 @@
+other.kill_player();

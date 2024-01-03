@@ -1,0 +1,1 @@
+//part_emitter_destroy(set_particle

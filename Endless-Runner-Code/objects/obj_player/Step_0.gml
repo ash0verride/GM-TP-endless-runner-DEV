@@ -36,16 +36,6 @@ switch (obj_game_manager.current_game_state)
 			sprite_index = spr_character_fly_release;
 		}
 		
-		if (keyboard_check_pressed(ord("B")))
-		{
-			is_boosting = !is_boosting;
-			
-			if (is_boosting)
-			{
-				obj_player.boost_cooldown += 5;
-			}
-		}
-		
 		if (is_boosting)
 		{
 			obj_game_manager.target_speed_percentage = 1.0;
@@ -60,26 +50,6 @@ switch (obj_game_manager.current_game_state)
 		else
 		{
 			obj_game_manager.target_speed_percentage = 0.5;
-		}
-		
-		if (keyboard_check_pressed(ord("D")))
-		{
-			obj_game_manager.current_game_state = GAME_STATE.DYING;
-			
-			var _player = self;
-			with (obj_shadow)
-			{
-				if (owner == _player)
-				{
-					fade_out(1.83);	
-				}
-			}
-		}
-		
-		if (keyboard_check_pressed(ord("P")))
-		{
-			var _shield = instance_create_layer(x, y, "StageFront", obj_shield);
-			_shield.life = 5.0;
 		}
 	
 		break;
