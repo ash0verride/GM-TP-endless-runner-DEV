@@ -2,25 +2,26 @@
 // This object is used to control spawning objects when needed.
 
 // Cooldown variables
-spawn_cooldown = 2;
+spawn_cooldown = 0;
 powerup_cooldown = 5;
-enemy_cooldown = 15;
+enemy_cooldown = 10;
 
 // Spawns random enemy
 spawn_enemy = function()
 {
+	var _spawn_x = room_width * 2;
 	var _type = irandom(1);
 	
 	switch (_type)
 	{
-		case 0: // BEAM	
-			instance_create_layer(room_width + 59, random_range(192, 736), "Stage", obj_beam);
+		case 0: // Beam
+			instance_create_layer(_spawn_x + 59, random_range(192, 736), "Stage", obj_beam);
 			spawn_cooldown = 0.8;
 		break;
 			
 		case 1: // Normal enemy
-			instance_create_layer(room_width + 204, 800, "Stage", obj_enemy);
-			spawn_cooldown = 1.2;
+			instance_create_layer(_spawn_x + 204, 800, "Stage", obj_enemy);
+			spawn_cooldown = 0.2;
 	}
 
 	enemy_cooldown = random_range(4, 10);
@@ -29,7 +30,9 @@ spawn_enemy = function()
 // Spawns random powerup
 spawn_powerup = function()
 {
-	instance_create_layer(room_width + 92, random_range(100, 896), "Stage", choose(obj_pickup_boost, obj_pickup_shield));
+	var _spawn_x = room_width * 2;
+	
+	instance_create_layer(_spawn_x + 92, random_range(100, 896), "Stage", choose(obj_pickup_boost, obj_pickup_shield));
 	
 	spawn_cooldown = 0.8;
 	powerup_cooldown = 10;
@@ -37,7 +40,8 @@ spawn_powerup = function()
 
 spawn_reward = function(_reward_type)
 {
-	var _new_x = room_width + 34;
+	var _spawn_x = room_width * 2;
+	var _new_x = _spawn_x + 34;
 	var _new_y = random_range(100, 896);
 	
 	switch(_reward_type)
@@ -102,7 +106,7 @@ spawn_reward = function(_reward_type)
 		break;
 		
 		case 5: // Chest
-			_new_x = room_width + 206;
+			_new_x = _spawn_x + 206;
 			_new_y = 896;
 			
 			instance_create_layer(_new_x, _new_y, "Stage", obj_chest);
