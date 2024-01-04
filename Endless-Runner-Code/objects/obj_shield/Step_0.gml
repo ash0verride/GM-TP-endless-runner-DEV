@@ -8,6 +8,15 @@ if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 	image_alpha = lerp(image_alpha, 1.0, 0.1);
 }
 
+if (life > 0 && life < 2)
+{
+	can_pulse = true;
+}
+else
+{
+	can_pulse = false;
+}
+
 if (life <= 0 && sprite_index != spr_shield_off)
 {
 	sprite_index = spr_shield_off;

@@ -21,9 +21,13 @@ kill_player = function()
 	{
 		if (instance_exists(obj_shield))
 		{
-			obj_shield.life = 0;
+			with (obj_shield)
+			{
+				life = 0;
+				exit;
+			}
 		}
-		else if (!is_boosting)
+		else // RE ADD HERE IF PLAYER SHOULD BE SAFE WHEN BOOSTING
 		{
 			obj_game_manager.current_game_state = GAME_STATE.DYING;
 		
