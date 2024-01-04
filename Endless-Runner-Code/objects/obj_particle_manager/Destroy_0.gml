@@ -1,1 +1,2 @@
-//part_emitter_destroy(set_particle
+// Destroys particle system
+part_system_destroy(particle_sys);

@@ -35,7 +35,8 @@ spawn_powerup = function()
 	instance_create_layer(_spawn_x + 92, random_range(100, 896), "Stage", choose(obj_pickup_boost, obj_pickup_shield));
 	
 	spawn_cooldown = 0.8;
-	powerup_cooldown = 10;
+	
+	powerup_cooldown = 3;
 }
 
 spawn_reward = function(_reward_type)
