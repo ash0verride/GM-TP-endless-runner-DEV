@@ -1,0 +1,7 @@
+has_dropped = false;
+
+// FIREWORK EFFECT
+
+// DROP SMOKE
+
+// CONFETTI WHEN PASSED
