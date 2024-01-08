@@ -1,0 +1,1 @@
+global.highscore = 100;

@@ -43,11 +43,16 @@ instance_create_layer(0, 0, "Midground", obj_mid_background);
 instance_create_layer(0, 0, "Foreground", obj_front_floor);
 instance_create_layer(0, 0, "Foreground", obj_front_ceiling);
 
+if (global.highscore != 0)
+{
+	var _flag = instance_create_layer(640 + real(global.highscore) * 60, 940, "Stage", obj_flag_marker);
+	_flag.has_dropped = true;
+}
+
 instance_create_layer(0, 0, "Stage", obj_player);
 
 update_speed = function(_delta_time)
 {
-	// PLEASE REWORK THIS LATER!!!!
 	// Checks if new max speed has changed.
 	if (new_max_speed != "" && real(new_max_speed) != max_speed)
 	{	

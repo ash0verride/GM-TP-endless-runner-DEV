@@ -1,7 +1,6 @@
 has_dropped = false;
 
-// FIREWORK EFFECT
+fall_speed = 0;
 
-// DROP SMOKE
-
-// CONFETTI WHEN PASSED
+image_scale = 1.0;
+scale_target = 1.0;
