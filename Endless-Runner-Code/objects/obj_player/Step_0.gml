@@ -10,7 +10,7 @@ switch (obj_game_manager.current_game_state)
 	// Logic for while the game is playing.
 	case GAME_STATE.PLAYING:
 	
-		if (keyboard_check_direct(vk_space))
+		if (keyboard_check_direct(vk_space) || mouse_check_button(mb_left))
 		{
 			y_velo += jump_strength * _delta_time;
 			

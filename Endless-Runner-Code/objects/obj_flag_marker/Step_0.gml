@@ -1,5 +1,7 @@
 x -= obj_game_manager.current_speed * 1.0;
 
+image_yscale = lerp(image_yscale, 1.0, 0.01);
+
 if (!has_dropped)
 {
 	if (y < 940)
