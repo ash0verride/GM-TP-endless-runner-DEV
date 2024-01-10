@@ -120,6 +120,7 @@
     {"id":{"name":"obj_interior_background","path":"objects/obj_interior_background/obj_interior_background.yy",},},
     {"id":{"name":"ps_glimmers_intense","path":"particles/ps_glimmers_intense/ps_glimmers_intense.yy",},},
     {"id":{"name":"spr_midground_3","path":"sprites/spr_midground_3/spr_midground_3.yy",},},
+    {"id":{"name":"Flag_bounce","path":"animcurves/Flag_bounce/Flag_bounce.yy",},},
     {"id":{"name":"spr_wall_end","path":"sprites/spr_wall_end/spr_wall_end.yy",},},
     {"id":{"name":"obj_particle_manager","path":"objects/obj_particle_manager/obj_particle_manager.yy",},},
     {"id":{"name":"obj_beam","path":"objects/obj_beam/obj_beam.yy",},},

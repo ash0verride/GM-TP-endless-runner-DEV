@@ -45,7 +45,7 @@ instance_create_layer(0, 0, "Foreground", obj_front_ceiling);
 
 if (global.highscore != 0)
 {
-	var _flag = instance_create_layer(640 + real(global.highscore) * 60, 940, "Stage", obj_flag_marker);
+	var _flag = instance_create_layer(640 + real(global.highscore) * 60, 950, "StageBack", obj_flag_marker);
 	_flag.has_dropped = true;
 }
 
