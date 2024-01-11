@@ -13,8 +13,6 @@ function get_gamestate()
 			return "Dying";
 		case GAME_STATE.ENDED:
 			return "Ended";
-		case GAME_STATE.IDLE:
-			return "Idle";
 		case GAME_STATE.PAUSED:
 			return "Paused";
 		case GAME_STATE.PLAYING:

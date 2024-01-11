@@ -1,16 +1,14 @@
 x -= obj_game_manager.current_speed;
-speed *= 1.1;
+speed *= 1.005;
 
-if (life > 0)
+life += delta_time * 0.000001;
+
+if (life > delay)
 {
-	life -= delta_time * 0.000001;
-	
-	if (life > delay)
-	{
-		create_ps(trail_ps);
-	}
+	create_ps(trail_ps);
 }
-else
+
+if (life > death)
 {
 	create_ps(head_ps);
 	instance_destroy();	

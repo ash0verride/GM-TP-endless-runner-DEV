@@ -12,11 +12,11 @@ if (!has_dropped)
 		{
 			y = 950;
 			
-			image_yscale = 0.8;
+			is_warping = true;
 			
 			create_firework();
 			
-			call_later(45, time_source_units_frames, create_firework, true);
+			handle_request = call_later(random_range(90, 120), time_source_units_frames, create_firework, true);
 
 			var _smoke_particle = instance_create_layer(x, y, "Stage", obj_particle_manager);
 			_smoke_particle.owner = self;
@@ -26,9 +26,20 @@ if (!has_dropped)
 		}
 	}
 }
-else
+
+if (is_warping)
 {
-	image_yscale = lerp(image_yscale, 1.0, 0.1);
+	var _warp_rate = 0.5;
+	warp_curve_percent += delta_time * 0.000001 * _warp_rate;
+	
+	if (warp_curve_percent > 1.0)
+	{
+		warp_curve_percent = 1.0;
+		is_warping = false;
+	}
+	
+	var _adjust_val = animcurve_channel_evaluate(warp_curve, warp_curve_percent);
+	image_yscale = 1.0 + _adjust_val;
 }
 
 if (!has_passed && obj_game_manager.current_distance > global.highscore)

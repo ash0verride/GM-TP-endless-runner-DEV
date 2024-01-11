@@ -4,6 +4,7 @@ if (sprite_index == spr_chest_idle)
 	image_index = 0;
 	
 	obj_game_manager.current_gold += 10;
+	obj_game_manager.current_level_gold += 10;
 	
 	var _chest = self;
 	with (obj_shadow)

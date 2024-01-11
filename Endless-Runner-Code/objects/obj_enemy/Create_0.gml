@@ -1,3 +1,4 @@
+has_hit = false;
 walking_speed = 3;
 
 var _shadow = instance_create_layer(x, y, "StageShadows", obj_shadow);

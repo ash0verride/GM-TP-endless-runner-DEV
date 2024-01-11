@@ -7,7 +7,6 @@ randomise();
 // Game states.
 enum GAME_STATE
 {
-	IDLE,
 	PLAYING,
 	DYING,	
 	ENDED,
@@ -17,7 +16,9 @@ enum GAME_STATE
 }
 
 // Variables.
-current_level = 0;
+current_level = 1;
+current_level_gold = 0;
+
 current_distance = 0;
 current_gold = 0;
 
@@ -26,6 +27,7 @@ current_game_state = GAME_STATE.PLAYING;
 min_speed = 0.0;
 max_speed = 24.0;
 new_max_speed = max_speed;
+true_max_speed = 72.0;
 
 current_speed = 0.0;
 current_speed_percentage = 0.0;
@@ -35,6 +37,8 @@ speed_up_rate = 0.2;
 speed_down_rate = 0.5;
 
 background_cooldown = random_range(5, 15);
+
+has_prefetched = false;
 
 // Game objects for room
 instance_create_layer(0, 0, "Farground", obj_far_background);
@@ -53,11 +57,23 @@ instance_create_layer(0, 0, "Stage", obj_player);
 
 update_speed = function(_delta_time)
 {
+	if (current_level_gold >= 50)
+	{
+		current_level_gold -= 50;
+		current_level++;
+		new_max_speed = max_speed * 1.05;
+	}
+	
+	if (new_max_speed > true_max_speed)
+	{
+		new_max_speed = true_max_speed;	
+	}
+	
 	// Checks if new max speed has changed.
-	if (new_max_speed != "" && real(new_max_speed) != max_speed)
+	if (new_max_speed != max_speed)
 	{	
 		// Adjusts the percentage.
-		current_speed_percentage = 0;
+		current_speed_percentage *= max_speed / new_max_speed;
 		// Sets max speed to new value.
 		max_speed = new_max_speed;
 	}

@@ -1,14 +1,17 @@
 // Set delta time for movements that are time based.
 var _delta_time = delta_time * 0.000001;
 
+if (!has_prefetched)
+{
+	_delta_time = 0;	
+}
+
 // Change logic depending on the current game state.
 switch (current_game_state)
-{
-	case GAME_STATE.IDLE:
-	break;
-	
+{	
 	// Logic for while the game is playing.
 	case GAME_STATE.PLAYING:
+	
 		update_speed(_delta_time);
 		
 		background_cooldown -= _delta_time;
@@ -68,6 +71,7 @@ switch (current_game_state)
 	break;
 	case GAME_STATE.PAUSED:
 	break;
+	
 	case GAME_STATE.TUTORIAL:
 		update_speed(_delta_time);
 	break;

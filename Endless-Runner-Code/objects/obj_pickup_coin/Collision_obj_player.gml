@@ -1,6 +1,7 @@
 if (sprite_index == spr_coin_idle)
 {
 	obj_game_manager.current_gold++;
+	obj_game_manager.current_level_gold++;
 	sprite_index = spr_coin_colleting;
 	image_angle = random(360);
 	

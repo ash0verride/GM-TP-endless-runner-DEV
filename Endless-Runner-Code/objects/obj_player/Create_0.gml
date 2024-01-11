@@ -11,6 +11,8 @@ y_velo = 0.0;
 is_boosting = false;
 boost_cooldown = 0;
 
+has_jumped = false;
+
 var _shadow = instance_create_layer(x, y, "StageShadows", obj_shadow);
 _shadow.owner = self;
 _shadow.set_y_offset(100);

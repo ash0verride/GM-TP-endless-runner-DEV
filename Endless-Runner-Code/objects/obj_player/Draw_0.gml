@@ -1,10 +1,6 @@
 // Change logic depending on the current game state.
 switch (obj_game_manager.current_game_state)
 {
-	case GAME_STATE.IDLE:
-		image_speed = 1.0;
-	break;
-	
 	// Logic for while the game is playing.
 	case GAME_STATE.PLAYING:
 		image_speed = 2.0 * clamp(obj_game_manager.current_speed_percentage, 0.25, 1.0);

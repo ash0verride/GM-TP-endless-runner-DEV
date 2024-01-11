@@ -90,3 +90,5 @@ change_interior_state = function()
 		break;
 	}
 }
+
+obj_game_manager.has_prefetched = true;
