@@ -1,7 +1,7 @@
 {
   "resourceType": "GMParticleSystem",
   "resourceVersion": "1.0",
-  "name": "ps_character_defeat",
+  "name": "ps_defeat",
   "backdropHeight": 768,
   "backdropImageOpacity": 0.5,
   "backdropImagePath": "",

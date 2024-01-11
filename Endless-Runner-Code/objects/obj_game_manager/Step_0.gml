@@ -32,6 +32,7 @@ switch (current_game_state)
 				// MAKE NEW FLAG
 				var _flag = instance_create_layer(obj_player.x, -200, "Stage", obj_flag_marker);
 				_flag.has_dropped = false;
+				_flag.has_passed = true;
 				
 				global.highscore = current_distance;
 				

@@ -30,6 +30,10 @@ kill_player = function()
 		else // RE ADD HERE IF PLAYER SHOULD BE SAFE WHEN BOOSTING
 		{
 			obj_game_manager.current_game_state = GAME_STATE.DYING;
+			
+			var _boom_particle = instance_create_layer(x, y, "Stage", obj_particle_manager);
+			_boom_particle.owner = self;
+			_boom_particle.set_particle(ps_defeat, "StageBackEffects");
 		
 			var _player = self;
 			with (obj_shadow)
