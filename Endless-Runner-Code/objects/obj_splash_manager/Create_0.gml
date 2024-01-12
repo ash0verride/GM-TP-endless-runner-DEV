@@ -1,3 +1,12 @@
+if (os_type == os_android || os_type == os_ios)
+{
+	global.is_touch = true;	
+}
+else
+{
+	global.is_touch = false;	
+}
+
 // Makes the project fullscreen
 window_set_fullscreen(true);
 
