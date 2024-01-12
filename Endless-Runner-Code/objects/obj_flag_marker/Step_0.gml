@@ -1,54 +1,63 @@
-x -= obj_game_manager.current_speed * 1.0;
-
-if (!has_dropped)
+if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 {
-	if (y < 950)
-	{
-		fall_speed += 90 * delta_time * 0.000001;
-		
-		y += fall_speed;
-		
-		if (y > 950)
-		{
-			y = 950;
-			
-			is_warping = true;
-			
-			create_firework();
-			
-			handle_request = call_later(random_range(90, 120), time_source_units_frames, create_firework, true);
+	x -= obj_game_manager.current_speed * 1.0;
 
-			var _smoke_particle = instance_create_layer(x, y, "Stage", obj_particle_manager);
-			_smoke_particle.owner = self;
-			_smoke_particle.set_particle(ps_smoke, "StageShadowsEffects");
+	if (!has_dropped)
+	{
+		if (y < 950)
+		{
+			fall_speed += 90 * delta_time * 0.000001;
+		
+			y += fall_speed;
+		
+			if (y > 950)
+			{
+				y = 950;
 			
-			has_dropped = true;
+				is_warping = true;
+			
+				create_firework();
+			
+				handle_request = call_later(random_range(90, 120), time_source_units_frames, create_firework, true);
+
+				var _smoke_particle = instance_create_layer(x, y, "Stage", obj_particle_manager);
+				_smoke_particle.owner = self;
+				_smoke_particle.set_particle(ps_smoke, "StageShadowsEffects");
+			
+				has_dropped = true;
+			}
 		}
 	}
-}
 
-if (is_warping)
-{
-	var _warp_rate = 0.5;
-	warp_curve_percent += delta_time * 0.000001 * _warp_rate;
-	
-	if (warp_curve_percent > 1.0)
+	if (is_warping)
 	{
-		warp_curve_percent = 1.0;
-		is_warping = false;
+		var _warp_rate = 0.5;
+		warp_curve_percent += delta_time * 0.000001 * _warp_rate;
+	
+		if (warp_curve_percent > 1.0)
+		{
+			warp_curve_percent = 1.0;
+			is_warping = false;
+		}
+	
+		var _adjust_val = animcurve_channel_evaluate(warp_curve, warp_curve_percent);
+		image_yscale = 1.0 + _adjust_val;
 	}
-	
-	var _adjust_val = animcurve_channel_evaluate(warp_curve, warp_curve_percent);
-	image_yscale = 1.0 + _adjust_val;
-}
 
-if (!has_passed && obj_game_manager.current_distance > global.highscore)
-{	
-	var _confetti_particle = instance_create_layer(x, y, "Stage", obj_particle_manager);
-	_confetti_particle.owner = self;
-	_confetti_particle.set_particle(ps_confetti, "StageBackEffects");
+	if (!has_passed && obj_game_manager.current_distance > global.highscore)
+	{	
+		var _confetti_particle = instance_create_layer(x, y, "Stage", obj_particle_manager);
+		_confetti_particle.owner = self;
+		_confetti_particle.set_particle(ps_confetti, "StageBackEffects");
 	
-	create_firework();
+		create_firework();
 	
-	has_passed = true;
+		has_passed = true;
+	}
+
+	image_speed = 1;	
+}
+else
+{
+	image_speed = 0;
 }

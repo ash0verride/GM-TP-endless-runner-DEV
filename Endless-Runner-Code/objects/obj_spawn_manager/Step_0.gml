@@ -3,6 +3,7 @@ var _delta_time = delta_time * 0.000001;
 
 if (obj_game_manager.current_game_state == GAME_STATE.PLAYING)
 {	
+	// MAYBE WE CHANGE THIS?
 	_delta_time *= obj_game_manager.current_speed_percentage * 2;
 	
 	powerup_cooldown -= _delta_time;

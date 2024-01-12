@@ -1,3 +1,8 @@
+if (obj_game_manager.current_game_state == GAME_STATE.PAUSED)
+{
+	exit;	
+}
+
 var _new_flame_particle = -1;
 var _new_shimmer_particle = -1;
 

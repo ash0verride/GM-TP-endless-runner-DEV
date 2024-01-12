@@ -36,6 +36,7 @@ switch (current_game_state)
 				var _flag = instance_create_layer(obj_player.x, -200, "Stage", obj_flag_marker);
 				_flag.has_dropped = false;
 				_flag.has_passed = true;
+				_flag.flag_distance = current_distance;
 				
 				global.highscore = current_distance;
 				
@@ -58,17 +59,20 @@ switch (current_game_state)
 				// Saves the new highscore buffer
 				buffer_save(highscore_buffer, "ENDLESS_RUNNER_HS.sav");
 				
-				// CREATE UI
+				// Play game over sequence for menu UI
+				var _gameover_seq = layer_sequence_create("GUI", 0, 0, seq_gameover);
 			}
 			else
 			{
-				// CREATE UI
+				// SWAP TO HIGHSCORE AT X
+				var _gameover_seq = layer_sequence_create("GUI", 0, 0, seq_gameover);
 			}
 		}
 	break;
 	
 	case GAME_STATE.ENDED:
 	break;
+	
 	case GAME_STATE.PAUSED:
 	break;
 	

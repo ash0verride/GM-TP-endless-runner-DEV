@@ -7,9 +7,11 @@ event_inherited();
 
 target_function = function()
 {
-	if (obj_game_manager.current_game_state != GAME_STATE.PAUSED && obj_game_manager.current_game_state != GAME_STATE.ENDED)
+	if (obj_game_manager.current_game_state == GAME_STATE.PLAYING)
 	{
 		obj_game_manager.current_game_state = GAME_STATE.PAUSED;
-		// Create pause menu UI
+		
+		// Play pause sequence for menu UI
+		var _pause_seq = layer_sequence_create("GUI", 0, 0, seq_pause);
 	}
 }

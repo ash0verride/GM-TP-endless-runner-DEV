@@ -5,7 +5,10 @@ if (owner == noone)
 		move_rate = lerp(move_rate, move_rate_target, drag_rate);
 	}
 	
-	x -= obj_game_manager.current_speed * move_rate;
+	if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
+	{
+		x -= obj_game_manager.current_speed * move_rate;
+	}
 }
 else
 {

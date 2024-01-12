@@ -51,6 +51,7 @@ if (global.highscore != 0)
 {
 	var _flag = instance_create_layer(640 + real(global.highscore) * 60, 950, "StageBack", obj_flag_marker);
 	_flag.has_dropped = true;
+	_flag.flag_distance = global.highscore;
 }
 
 instance_create_layer(0, 0, "Stage", obj_player);

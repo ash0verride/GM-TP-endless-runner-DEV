@@ -9,6 +9,8 @@ warp_curve_percent = 0;
 
 handle_request = -1;
 
+flag_distance = 0;
+
 create_firework = function()
 {
 	if (instance_exists(self))

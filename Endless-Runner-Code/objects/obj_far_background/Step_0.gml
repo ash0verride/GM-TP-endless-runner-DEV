@@ -1,22 +1,25 @@
-x -= obj_game_manager.current_speed * background_move_rate;
-
-if (x < 0)
+if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 {
-	before_sprite = sprite_index;
-	sprite_index = after_sprite;
-	
-	switch(after_sprite)
+	x -= obj_game_manager.current_speed * background_move_rate;
+
+	if (x < 0)
 	{
-		case sprites[0]:
-			after_sprite = sprites[1];
-			break;
-		case sprites[1]:
-			after_sprite = sprites[2];
-			break;
-		case sprites[2]:
-			after_sprite = sprites[0];
-			break;
-	}
+		before_sprite = sprite_index;
+		sprite_index = after_sprite;
 	
-	x += sprite_width;
+		switch(after_sprite)
+		{
+			case sprites[0]:
+				after_sprite = sprites[1];
+				break;
+			case sprites[1]:
+				after_sprite = sprites[2];
+				break;
+			case sprites[2]:
+				after_sprite = sprites[0];
+				break;
+		}
+	
+		x += sprite_width;
+	}
 }

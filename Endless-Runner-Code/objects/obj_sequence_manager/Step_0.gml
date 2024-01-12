@@ -18,3 +18,15 @@ if (set_sequence != -1)
 		instance_destroy();
 	}
 }
+
+if (obj_game_manager.current_game_state == GAME_STATE.PAUSED)
+{
+	layer_sequence_pause(set_sequence);
+}
+else
+{
+	if (layer_sequence_is_paused(set_sequence))
+	{
+	    layer_sequence_play(set_sequence);
+	}
+}
