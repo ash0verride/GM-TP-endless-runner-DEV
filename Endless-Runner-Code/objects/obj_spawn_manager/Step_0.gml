@@ -1,14 +1,14 @@
-// Set delta time for movements that are time based.
-var _delta_time = delta_time * 0.000001;
-
 if (obj_game_manager.current_game_state == GAME_STATE.PLAYING)
 {	
-	// MAYBE WE CHANGE THIS?
-	_delta_time *= obj_game_manager.current_speed_percentage * 2;
+	// Set delta time for movements that are time based.
+	var _delta_time = delta_time * 0.000001;
 	
-	powerup_cooldown -= _delta_time;
-	spawn_cooldown -= _delta_time;
-	enemy_cooldown -= _delta_time;
+
+	var _delta_distance = obj_game_manager.current_speed * _delta_time;
+	
+	powerup_cooldown -= _delta_distance;
+	spawn_cooldown -= _delta_distance;
+	enemy_cooldown -= _delta_distance;
 	
 	if (spawn_cooldown <= 0)
 	{
@@ -22,7 +22,8 @@ if (obj_game_manager.current_game_state == GAME_STATE.PLAYING)
 		}
 		else
 		{
-			spawn_reward(irandom(5));
+			//spawn_reward(irandom(4) + 1);
+			spawn_reward(2);
 		}
 	}	
 }

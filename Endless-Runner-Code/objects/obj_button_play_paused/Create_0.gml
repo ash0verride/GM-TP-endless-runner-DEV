@@ -1,3 +1,5 @@
+was_paused = true;
+
 event_inherited();
 
 target_function = function()

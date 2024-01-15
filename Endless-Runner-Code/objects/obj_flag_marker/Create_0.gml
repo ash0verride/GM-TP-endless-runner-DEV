@@ -11,6 +11,8 @@ handle_request = -1;
 
 flag_distance = 0;
 
+text_alpha = 1.0;
+
 create_firework = function()
 {
 	if (instance_exists(self))
@@ -18,7 +20,7 @@ create_firework = function()
 		var _firework= instance_create_layer(x, y - 100, "Stage", obj_firework);
 		_firework.delay = 0.02;
 		_firework.death = 0.55;
-		_firework.speed = 15;
+		_firework.fire_speed = 15;
 	}
 	else
 	{

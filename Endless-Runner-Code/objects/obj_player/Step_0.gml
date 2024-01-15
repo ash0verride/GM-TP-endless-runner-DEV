@@ -9,7 +9,17 @@ if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 		// Logic for while the game is playing.
 		case GAME_STATE.PLAYING:
 	
-			if (keyboard_check_direct(vk_space) || mouse_check_button(mb_left))
+			var _gamepad_jump = false;
+			
+			if (gamepad_is_connected(0))
+			{
+				if (gamepad_button_check(0, gp_face1))
+				{
+					_gamepad_jump = true;	
+				}
+			}
+	
+			if (keyboard_check_direct(vk_space) || mouse_check_button(mb_left) || _gamepad_jump)
 			{
 				has_jumped = true;
 				y_velo += jump_strength * _delta_time;

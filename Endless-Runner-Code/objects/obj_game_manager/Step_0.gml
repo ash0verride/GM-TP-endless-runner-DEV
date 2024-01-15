@@ -14,11 +14,12 @@ switch (current_game_state)
 	
 		update_speed(_delta_time);
 		
-		background_cooldown -= _delta_time;
+		background_cooldown -= current_speed * _delta_time;
+		
 		if (background_cooldown <= 0)
 		{
 			obj_interior_background.change_interior_state();
-			background_cooldown = random_range(5, 15);
+			background_cooldown = random_range(100, 100 + 50 * current_level);
 		}
 		
 	break;
@@ -58,9 +59,6 @@ switch (current_game_state)
 	
 				// Saves the new highscore buffer
 				buffer_save(highscore_buffer, "ENDLESS_RUNNER_HS.sav");
-				
-				// Play game over sequence for menu UI
-				var _gameover_seq = layer_sequence_create("GUI", 0, 0, seq_gameover);
 			}
 			else
 			{

@@ -1,1 +1,1 @@
-global.highscore = 100;
+global.highscore = 0;

@@ -5,7 +5,7 @@ death = 0;
 tilt = random_range(-10, 10);
 direction = 90 + tilt;
 
-speed = 1;
+fire_speed = 1;
 
 trail_ps = ps_firework_trail;
 head_ps = ps_firework;

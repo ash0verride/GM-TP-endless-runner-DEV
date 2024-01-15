@@ -36,7 +36,7 @@ target_speed_percentage = 0.5;
 speed_up_rate = 0.2;
 speed_down_rate = 0.5;
 
-background_cooldown = random_range(5, 15);
+background_cooldown = 100;
 
 has_prefetched = false;
 
@@ -104,6 +104,9 @@ update_speed = function(_delta_time)
 		current_speed = smoothstep(min_speed, max_speed, current_speed_percentage);
 	}
 	
-	// Add current speed to distance traveled.
-	current_distance += current_speed * _delta_time;
+	if (current_game_state != GAME_STATE.TUTORIAL)
+	{
+		// Add current speed to distance traveled.
+		current_distance += current_speed * _delta_time;
+	}
 }

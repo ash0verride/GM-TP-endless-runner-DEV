@@ -1,3 +1,5 @@
+was_paused = false;
+
 if (global.is_touch)
 {
 	sprite_index = spr_button_pause_mobile;

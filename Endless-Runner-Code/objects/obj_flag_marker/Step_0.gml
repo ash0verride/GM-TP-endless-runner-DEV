@@ -38,6 +38,15 @@ if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 		{
 			warp_curve_percent = 1.0;
 			is_warping = false;
+			text_alpha = 0.0;
+			
+			var _new_gameover = function()
+			{
+				// Play game over sequence for menu UI
+				var _gameover_seq = layer_sequence_create("GUI", 0, 0, seq_gameover);
+			}
+			
+			var _go_handle = call_later(60, time_source_units_frames, _new_gameover, false);
 		}
 	
 		var _adjust_val = animcurve_channel_evaluate(warp_curve, warp_curve_percent);

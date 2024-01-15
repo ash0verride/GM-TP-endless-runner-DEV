@@ -3,8 +3,8 @@
 
 // Cooldown variables
 spawn_cooldown = 0;
-powerup_cooldown = 5;
-enemy_cooldown = 10;
+powerup_cooldown = 1000000000000000000000000000000000000000000;
+enemy_cooldown = 100000000000000000000000000000000000000000000;
 
 // Spawns random enemy
 spawn_enemy = function()
@@ -41,20 +41,24 @@ spawn_powerup = function()
 
 spawn_reward = function(_reward_type)
 {
-	var _spawn_x = room_width * 2;
+	var _spawn_x = room_width * 1.1;
 	var _new_x = _spawn_x + 34;
 	var _new_y = random_range(100, 896);
 	
 	switch(_reward_type)
 	{
 		case 0: // Single Coin
-			instance_create_layer(_new_x, _new_y, "Stage", obj_pickup_coin);
+		
+			_new_y = 896;
 			
-			spawn_cooldown = 0.8;
+			instance_create_layer(_new_x, _new_y, "Stage", obj_pickup_coin);
+			spawn_cooldown = 2;
+			
 		break;
 		
 		case 1: // 3x3 Set Coins
-			_new_y = random_range(100, 896 - 160);
+	
+			_new_y = choose(100, 438, 776);
 			
 			for (var _i = 0; _i < 3; _i++)
 			{
@@ -64,11 +68,19 @@ spawn_reward = function(_reward_type)
 				}
 			}
 			
-			spawn_cooldown = 1.0;
+			spawn_cooldown = 10;
+			
 		break;
 		
 		case 2: // 9x2 Set Coins
+		
 			_new_y = random_range(100, 896 - 80);
+			_new_y = 100;
+			_new_y = 340;
+			_new_y = 580;
+			_new_y = 820;
+			
+			_new_y = choose(100, 340, 580, 820)
 			
 			for (var _i = 0; _i < 9; _i++)
 			{
@@ -78,10 +90,12 @@ spawn_reward = function(_reward_type)
 				}
 			}
 			
-			spawn_cooldown = 1.5;
+			spawn_cooldown = 15;
+			
 		break;
 		
 		case 3: // 2x9 Set Coins
+		
 			_new_y = random_range(100, 896 - 640);
 			
 			for (var _i = 0; _i < 2; _i++)
@@ -92,10 +106,12 @@ spawn_reward = function(_reward_type)
 				}
 			}
 			
-			spawn_cooldown = 0.85;
+			spawn_cooldown = 85;
+			
 		break;
 		
 		case 4: // 9x1 Wave Coins
+		
 			_new_y = random_range(100 + 160, 896);
 			
 			for (var _i = 0; _i < 9; _i++)
@@ -103,16 +119,19 @@ spawn_reward = function(_reward_type)
 				instance_create_layer(_new_x + _i * 70, _new_y - sin(pi / (8 / _i)) * 160, "Stage", obj_pickup_coin);
 			}
 			
-			spawn_cooldown = 1.5;
+			spawn_cooldown = 15;
+			
 		break;
 		
 		case 5: // Chest
+		
 			_new_x = _spawn_x + 206;
 			_new_y = 896;
 			
 			instance_create_layer(_new_x, _new_y, "Stage", obj_chest);
 			
-			spawn_cooldown = 1.0;
+			spawn_cooldown = 10;
 		break;
+		
 	}
 }
