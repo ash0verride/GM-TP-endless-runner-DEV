@@ -22,7 +22,26 @@ current_level_gold = 0;
 current_distance = 0;
 current_gold = 0;
 
-current_game_state = GAME_STATE.PLAYING;
+if (global.times_played == 0)
+{
+	current_game_state = GAME_STATE.TUTORIAL;
+	instance_create_layer(room_width * 0.5, room_height * 0.5, "GUI", obj_tutorial);
+}
+else
+{
+	current_game_state = GAME_STATE.PLAYING;
+	
+	layer_sequence_create("Stage", 0, 0, seq_gm_layout);
+	
+	if (global.highscore != 0)
+	{
+		var _flag = instance_create_layer(640 + real(global.highscore) * 60, 950, "StageBack", obj_flag_marker);
+		_flag.has_dropped = true;
+		_flag.flag_distance = global.highscore;
+	}
+}
+
+global.times_played++;
 
 min_speed = 0.0;
 max_speed = 24.0;
@@ -46,13 +65,6 @@ instance_create_layer(0, 0, "Midground", obj_interior_background);
 instance_create_layer(0, 0, "Midground", obj_mid_background);
 instance_create_layer(0, 0, "Foreground", obj_front_floor);
 instance_create_layer(0, 0, "Foreground", obj_front_ceiling);
-
-if (global.highscore != 0)
-{
-	var _flag = instance_create_layer(640 + real(global.highscore) * 60, 950, "StageBack", obj_flag_marker);
-	_flag.has_dropped = true;
-	_flag.flag_distance = global.highscore;
-}
 
 instance_create_layer(0, 0, "Stage", obj_player);
 

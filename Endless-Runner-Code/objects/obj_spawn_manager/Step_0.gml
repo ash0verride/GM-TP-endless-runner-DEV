@@ -22,8 +22,7 @@ if (obj_game_manager.current_game_state == GAME_STATE.PLAYING)
 		}
 		else
 		{
-			//spawn_reward(irandom(4) + 1);
-			spawn_reward(2);
+			spawn_reward(choose(0,1,1,1,1,2,2,2,3,3,4,4,5,4,6,7));
 		}
 	}	
 }

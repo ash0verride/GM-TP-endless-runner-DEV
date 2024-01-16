@@ -52,3 +52,9 @@ if (!variable_global_exists("is_muted"))
 		buffer_save(highscore_buffer, "ENDLESS_RUNNER_HS.sav");
 	}
 }
+
+// Check if game has been played this session
+if (!variable_global_exists("times_played"))
+{
+	global.times_played = 0;
+}

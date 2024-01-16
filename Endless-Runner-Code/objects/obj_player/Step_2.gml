@@ -17,6 +17,11 @@ switch (sprite_index)
 		_new_flame_particle.set_angle(180);
 		_new_flame_particle.set_offset(0, 100);
 		
+		if (obj_game_manager.current_game_state == GAME_STATE.TUTORIAL)
+		{
+			break;	
+		}
+		
 		_new_shimmer_particle = instance_create_layer(0, 0, "Stage", obj_particle_manager);
 		_new_shimmer_particle.set_particle(ps_glimmers, "StageFrontEffects");
 		
@@ -31,6 +36,11 @@ switch (sprite_index)
 		_new_flame_particle.set_angle(180);
 		_new_flame_particle.set_offset(0, 100);
 		
+		if (obj_game_manager.current_game_state == GAME_STATE.TUTORIAL)
+		{
+			break;	
+		}
+		
 		_new_shimmer_particle = instance_create_layer(0, 0, "Stage", obj_particle_manager);
 		_new_shimmer_particle.set_particle(ps_glimmers, "StageFrontEffects");
 		
@@ -44,6 +54,11 @@ switch (sprite_index)
 		_new_flame_particle.set_angle(90);
 		_new_flame_particle.set_offset(-100, 30);
 		
+		if (obj_game_manager.current_game_state == GAME_STATE.TUTORIAL)
+		{
+			break;	
+		}
+		
 		_new_shimmer_particle = instance_create_layer(0, 0, "Stage", obj_particle_manager);
 		_new_shimmer_particle.set_particle(ps_glimmers_intense, "StageFrontEffects");
 		
@@ -51,12 +66,22 @@ switch (sprite_index)
 	
 	case spr_character_idle:
 	
+		if (obj_game_manager.current_game_state == GAME_STATE.TUTORIAL)
+		{
+			break;	
+		}
+	
 		_new_shimmer_particle = instance_create_layer(0, 0, "Stage", obj_particle_manager);
 		_new_shimmer_particle.set_particle(ps_glimmers, "StageFrontEffects");
 	
 	break;
 	
 	case spr_character_run:
+	
+		if (obj_game_manager.current_game_state == GAME_STATE.TUTORIAL)
+		{
+			break;	
+		}
 	
 		_new_shimmer_particle = instance_create_layer(0, 0, "Stage", obj_particle_manager);
 		_new_shimmer_particle.set_particle(ps_glimmers, "StageFrontEffects");

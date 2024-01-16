@@ -55,9 +55,10 @@ if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 
 	if (!has_passed && obj_game_manager.current_distance > global.highscore)
 	{	
-		var _confetti_particle = instance_create_layer(x, y, "Stage", obj_particle_manager);
+		var _confetti_particle = instance_create_layer(x - 50, y - 20, "Stage", obj_particle_manager);
 		_confetti_particle.owner = self;
-		_confetti_particle.set_particle(ps_confetti, "StageBackEffects");
+		_confetti_particle.set_particle(ps_confetti, "StageShadowsEffects");
+		_confetti_particle.set_offset(-50, -240);
 	
 		create_firework();
 	

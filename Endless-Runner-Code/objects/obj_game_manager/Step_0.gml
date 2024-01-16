@@ -67,15 +67,5 @@ switch (current_game_state)
 			}
 		}
 	break;
-	
-	case GAME_STATE.ENDED:
-	break;
-	
-	case GAME_STATE.PAUSED:
-	break;
-	
-	case GAME_STATE.TUTORIAL:
-		update_speed(_delta_time);
-	break;
 }
 

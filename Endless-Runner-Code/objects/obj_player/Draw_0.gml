@@ -17,10 +17,6 @@ switch (obj_game_manager.current_game_state)
 	case GAME_STATE.PAUSED:
 		image_speed = 0.0;
 	break;
-	
-	case GAME_STATE.TUTORIAL:
-		image_speed = 2.0 * clamp(obj_game_manager.current_speed_percentage, 0.25, 1.0);
-	break;
 }
 
 draw_self();
