@@ -24,8 +24,8 @@
     "Keyframes": [],
   },
   "parent": {
-    "name": "Sequences",
-    "path": "folders/Sequences.yy",
+    "name": "Coin Layouts",
+    "path": "folders/Sequences/Coin Layouts.yy",
   },
   "playback": 0,
   "playbackSpeed": 60.0,

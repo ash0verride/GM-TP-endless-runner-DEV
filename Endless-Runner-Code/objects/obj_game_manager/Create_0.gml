@@ -22,10 +22,16 @@ current_level_gold = 0;
 current_distance = 0;
 current_gold = 0;
 
+audio_stop_sound(global.music);
+
 if (global.times_played == 0)
 {
 	current_game_state = GAME_STATE.TUTORIAL;
 	instance_create_layer(room_width * 0.5, room_height * 0.5, "GUI", obj_tutorial);
+	
+	// Play audio for main game at lower volume
+	global.music = audio_play_sound(snd_music_main, 100, true, 0.8);
+	audio_sound_pitch(global.music, 0.9);
 }
 else
 {
@@ -39,6 +45,8 @@ else
 		_flag.has_dropped = true;
 		_flag.flag_distance = global.highscore;
 	}
+	
+	global.music = audio_play_sound(snd_music_main, 100, true, 1.0);
 }
 
 global.times_played++;

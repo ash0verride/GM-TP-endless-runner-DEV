@@ -17,7 +17,7 @@ var _splash_seq = layer_sequence_create("Instances", 0, 0, seq_splash);
 audio_stop_all();
 
 // Play audio for main menu
-//music = audio_play_sound(snd_music_menu_main, 100, true);
+global.music = audio_play_sound(snd_music_menu, 100, true, 1.0);
 
 // Check for highscore variable
 if (!variable_global_exists("is_muted"))

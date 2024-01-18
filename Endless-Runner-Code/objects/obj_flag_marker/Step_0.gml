@@ -42,6 +42,9 @@ if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 			
 			var _new_gameover = function()
 			{
+				audio_stop_sound(global.music);
+				global.music = audio_play_sound(snd_music_win, 100, false, 1.0);
+				
 				// Play game over sequence for menu UI
 				var _gameover_seq = layer_sequence_create("GUI", 0, 0, seq_gameover);
 			}
@@ -63,6 +66,24 @@ if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 		create_firework();
 	
 		has_passed = true;
+	}
+	
+	if (!has_cooldown_adjusted)
+	{
+		if (x <= room_width * 2.33)
+		{
+			obj_spawn_manager.spawn_cooldown = (room_width * 0.66) / 60;
+			
+			with (obj_pickup_coin)
+			{
+				if (x >= room_width * 2)
+				{
+					instance_destroy();	
+				}
+			}
+			
+			has_cooldown_adjusted = true;	
+		}
 	}
 
 	image_speed = 1;	

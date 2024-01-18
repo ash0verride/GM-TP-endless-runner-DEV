@@ -62,7 +62,9 @@ switch (current_game_state)
 			}
 			else
 			{
-				// SWAP TO HIGHSCORE AT X
+				audio_stop_sound(global.music);
+				global.music = audio_play_sound(snd_music_lose, 100, false, 1.0);
+				
 				var _gameover_seq = layer_sequence_create("GUI", 0, 0, seq_gameover);
 			}
 		}

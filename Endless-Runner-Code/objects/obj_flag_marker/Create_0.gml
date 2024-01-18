@@ -1,5 +1,6 @@
 has_dropped = false;
 has_passed = false;
+has_cooldown_adjusted = false;
 
 fall_speed = 0;
 

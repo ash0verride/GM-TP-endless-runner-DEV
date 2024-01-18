@@ -102,7 +102,7 @@ if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 			{
 				if (gamepad_button_check(0, gp_face1))
 				{
-					_gamepad_jump = true;	
+					_gamepad_jump_tutorial = true;	
 				}
 			}
 	
@@ -154,7 +154,7 @@ if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 			y = ystart;
 			y_velo = 0.0;
 	
-			if (obj_game_manager.current_game_state == GAME_STATE.PLAYING)
+			if (obj_game_manager.current_game_state == GAME_STATE.PLAYING || obj_game_manager.current_game_state == GAME_STATE.TUTORIAL)
 			{
 				if (sprite_index != spr_character_run)
 				{
