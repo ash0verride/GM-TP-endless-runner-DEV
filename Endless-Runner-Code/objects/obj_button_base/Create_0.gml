@@ -3,6 +3,8 @@ is_pushed = false;
 
 target_scale = 1.0;
 
+can_scale_at_rate = false;
+
 scale_up_rate = 0.1;
 scale_down_rate = 0.5;
 

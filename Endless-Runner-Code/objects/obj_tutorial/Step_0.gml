@@ -4,8 +4,8 @@ switch (tip_type)
 	
 		obj_game_manager.target_speed_percentage = 0.0;
 		obj_player.image_speed = 0;
-		obj_player.y = 810;
-		obj_player.sprite_index = spr_character_idle;
+		//obj_player.y = 810;
+		//obj_player.sprite_index = spr_character_idle;
 
 		if (is_gamepad && gamepad_button_check(0, gp_face1))
 		{
@@ -17,7 +17,7 @@ switch (tip_type)
 			tip_type = 1;
 			can_jump = true;
 		}
-		else if (keyboard_check_direct(vk_anykey))
+		else if (keyboard_check_direct(vk_anykey) || mouse_check_button(mb_left))
 		{
 			tip_type = 1;
 			can_jump = true;
@@ -78,22 +78,37 @@ switch (tip_type)
 		if (is_gamepad)
 		{
 			tip_message = "Release the A or Cross button\nto drop down!";
+			
+			if (!gamepad_button_check(0, gp_face1))
+			{
+				action_timer += delta_time * 0.000001;
+			}
 		}		
 		else if (global.is_touch)
 		{
 			tip_message = "Release the screen to drop down!";
+			
+			if (!mouse_check_button(mb_left))
+			{
+				action_timer += delta_time * 0.000001;
+			}
 		}
 		else
 		{
 			tip_message = "Release space and left mouse\nbutton to drop down!";
+			
+			if (!mouse_check_button(mb_left) && !keyboard_check_direct(vk_space))
+			{
+				action_timer += delta_time * 0.000001;
+			}
 		}
 		
-		if (obj_player.y >= obj_player.ystart)
-		{
-			action_timer += delta_time * 0.000001;
-		}
+		//if (obj_player.y >= obj_player.ystart)
+		//{
+		//	action_timer += delta_time * 0.000001;
+		//}
 		
-		if (action_timer >= 3.0)
+		if (action_timer >= 1.5)
 		{
 			action_timer = 0;
 			tip_type = 3;
@@ -112,7 +127,7 @@ switch (tip_type)
 		
 		action_timer += delta_time * 0.000001;
 		
-		if (action_timer >= 5.0)
+		if (action_timer >= 4.0)
 		{
 			action_timer = 0;
 			tip_type = 4;

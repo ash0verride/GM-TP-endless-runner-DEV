@@ -3,9 +3,9 @@ y = 840;
 
 ystart = y;
 
-jump_strength = 100;
+jump_strength = 110;
 jump_threshold = 10;
-gravity_strength = 0.9;
+gravity_strength = 0.8;
 y_velo = 0.0;
 
 is_boosting = false;

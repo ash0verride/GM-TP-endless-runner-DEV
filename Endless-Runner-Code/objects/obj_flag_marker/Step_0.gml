@@ -6,7 +6,7 @@ if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 	{
 		if (y < 950)
 		{
-			fall_speed += 90 * delta_time * 0.000001;
+			fall_speed += 120 * delta_time * 0.000001;
 		
 			y += fall_speed;
 		
@@ -31,7 +31,7 @@ if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 
 	if (is_warping)
 	{
-		var _warp_rate = 0.5;
+		var _warp_rate = 1.2;
 		warp_curve_percent += delta_time * 0.000001 * _warp_rate;
 	
 		if (warp_curve_percent > 1.0)

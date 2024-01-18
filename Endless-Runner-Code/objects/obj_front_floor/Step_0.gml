@@ -35,7 +35,7 @@ if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 		{	
 			if (obj_interior_background.current_ground_state == INTERIOR_STATE.OUTSIDE)
 			{
-				set_alphas[_i] = 0.8;	
+				set_alphas[_i] = 1.0;	
 			}
 			else
 			{
