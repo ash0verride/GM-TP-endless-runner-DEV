@@ -14,6 +14,6 @@ target_function = function()
 		obj_game_manager.current_game_state = GAME_STATE.PAUSED;
 		
 		// Play pause sequence for menu UI
-		var _pause_seq = layer_sequence_create("GUI", 0, 0, seq_pause);
+		var _pause_seq = layer_sequence_create("GUI", 0, 0, seq_pause_in);
 	}
 }
