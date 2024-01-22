@@ -5,7 +5,7 @@ draw_set_font(fnt_rowdies_56);
 var _text_colour = make_color_rgb(142, 214, 67);
 draw_set_color(_text_colour);
 	
-draw_set_alpha(1.0);
+draw_set_alpha(image_alpha);
 
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
