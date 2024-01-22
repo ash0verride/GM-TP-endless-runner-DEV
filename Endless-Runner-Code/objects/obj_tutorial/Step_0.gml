@@ -4,8 +4,6 @@ switch (tip_type)
 	
 		obj_game_manager.target_speed_percentage = 0.0;
 		obj_player.image_speed = 0;
-		//obj_player.y = 810;
-		//obj_player.sprite_index = spr_character_idle;
 
 		if (is_gamepad && gamepad_button_check(0, gp_face1))
 		{

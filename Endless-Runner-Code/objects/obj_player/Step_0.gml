@@ -24,11 +24,12 @@ if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 				has_jumped = true;
 				y_velo += jump_strength * _delta_time;
 			
-				if (sprite_index == spr_character_run || sprite_index == spr_character_idle_old)
+				if (current_player_state == PLAYER_STATE.RUN || current_player_state == PLAYER_STATE.IDLE)
 				{
-					if (sprite_index != spr_character_idle_old)
+					if (current_player_state != PLAYER_STATE.IDLE)
 					{
-						sprite_index = spr_character_idle_old;
+						current_player_state = PLAYER_STATE.IDLE;
+						sprite_index = spr_character_idle;
 						image_index = 0;
 					
 						var _dust_particle = instance_create_layer(x, y + 80, "Stage", obj_particle_manager);
@@ -39,16 +40,19 @@ if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 				}
 				else if (y_velo > jump_threshold)
 				{
-					sprite_index = spr_character_fly_big;
+					current_player_state = PLAYER_STATE.FLY_BIG;
+					sprite_index = spr_character_idle;
 				}
 				else
 				{
-					sprite_index = spr_character_fly_small;
+					current_player_state = PLAYER_STATE.FLY_SMALL;
+					sprite_index = spr_character_idle;
 				}
 			}
 			else if (y < ystart)
 			{
-				sprite_index = spr_character_fly_release;
+				current_player_state = PLAYER_STATE.FLY_RELEASED;
+				sprite_index = spr_character_idle;
 			}
 		
 			if (is_boosting)
@@ -71,8 +75,9 @@ if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 		
 		case GAME_STATE.DYING:
 	
-			if (sprite_index != spr_character_death)
+			if (current_player_state != PLAYER_STATE.DEATH)
 			{
+				current_player_state = PLAYER_STATE.DEATH;
 				sprite_index = spr_character_death;
 				image_index = 0;
 				obj_game_manager.target_speed_percentage = 0.0;
@@ -90,7 +95,8 @@ if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 			{
 				if (y < ystart)
 				{
-					sprite_index = spr_character_fly_release;
+					current_player_state = PLAYER_STATE.FLY_RELEASED;
+					sprite_index = spr_character_idle;
 				}
 				
 				break;
@@ -111,11 +117,12 @@ if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 				has_jumped = true;
 				y_velo += jump_strength * _delta_time;
 			
-				if (sprite_index == spr_character_run || sprite_index == spr_character_idle_old)
+				if (current_player_state == PLAYER_STATE.RUN || current_player_state == PLAYER_STATE.IDLE)
 				{
-					if (sprite_index != spr_character_idle_old)
+					if (current_player_state != PLAYER_STATE.IDLE)
 					{
-						sprite_index = spr_character_idle_old;
+						current_player_state = PLAYER_STATE.IDLE;
+						sprite_index = spr_character_idle;
 						image_index = 0;
 					
 						var _dust_particle = instance_create_layer(x, y + 80, "Stage", obj_particle_manager);
@@ -126,16 +133,19 @@ if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 				}
 				else if (y_velo > jump_threshold)
 				{
-					sprite_index = spr_character_fly_big;
+					current_player_state = PLAYER_STATE.FLY_BIG;
+					sprite_index = spr_character_idle;
 				}
 				else
 				{
-					sprite_index = spr_character_fly_small;
+					current_player_state = PLAYER_STATE.FLY_SMALL;
+					sprite_index = spr_character_idle;
 				}
 			}
 			else if (y < ystart)
 			{
-				sprite_index = spr_character_fly_release;
+				current_player_state = PLAYER_STATE.FLY_RELEASED;
+				sprite_index = spr_character_idle;
 			}
 			
 		break;
@@ -156,8 +166,9 @@ if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 	
 			if (obj_game_manager.current_game_state == GAME_STATE.PLAYING || obj_game_manager.current_game_state == GAME_STATE.TUTORIAL)
 			{
-				if (sprite_index != spr_character_run)
+				if (current_player_state != PLAYER_STATE.RUN)
 				{
+					current_player_state = PLAYER_STATE.RUN;
 					sprite_index = spr_character_run;
 				}
 		
@@ -180,7 +191,8 @@ if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 
 		if (is_boosting && obj_game_manager.current_game_state == GAME_STATE.PLAYING)
 		{
-			sprite_index = spr_character_boost_old;	
+			current_player_state = PLAYER_STATE.BOOST;
+			sprite_index = spr_character_boost;	
 		}
 	}
 }

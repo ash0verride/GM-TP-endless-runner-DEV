@@ -22,7 +22,7 @@ if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 
 				var _smoke_particle = instance_create_layer(x, y, "Stage", obj_particle_manager);
 				_smoke_particle.owner = self;
-				_smoke_particle.set_particle(ps_smoke, "StageShadowsEffects");
+				_smoke_particle.set_particle(ps_flag_smoke, "StageShadowsEffects");
 			
 				has_dropped = true;
 			}
