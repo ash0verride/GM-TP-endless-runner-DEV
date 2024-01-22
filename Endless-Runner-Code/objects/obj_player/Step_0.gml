@@ -24,11 +24,11 @@ if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 				has_jumped = true;
 				y_velo += jump_strength * _delta_time;
 			
-				if (sprite_index == spr_character_run || sprite_index == spr_character_idle)
+				if (sprite_index == spr_character_run || sprite_index == spr_character_idle_old)
 				{
-					if (sprite_index != spr_character_idle)
+					if (sprite_index != spr_character_idle_old)
 					{
-						sprite_index = spr_character_idle;
+						sprite_index = spr_character_idle_old;
 						image_index = 0;
 					
 						var _dust_particle = instance_create_layer(x, y + 80, "Stage", obj_particle_manager);
@@ -111,11 +111,11 @@ if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 				has_jumped = true;
 				y_velo += jump_strength * _delta_time;
 			
-				if (sprite_index == spr_character_run || sprite_index == spr_character_idle)
+				if (sprite_index == spr_character_run || sprite_index == spr_character_idle_old)
 				{
-					if (sprite_index != spr_character_idle)
+					if (sprite_index != spr_character_idle_old)
 					{
-						sprite_index = spr_character_idle;
+						sprite_index = spr_character_idle_old;
 						image_index = 0;
 					
 						var _dust_particle = instance_create_layer(x, y + 80, "Stage", obj_particle_manager);
@@ -180,7 +180,7 @@ if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 
 		if (is_boosting && obj_game_manager.current_game_state == GAME_STATE.PLAYING)
 		{
-			sprite_index = spr_character_boost;	
+			sprite_index = spr_character_boost_old;	
 		}
 	}
 }

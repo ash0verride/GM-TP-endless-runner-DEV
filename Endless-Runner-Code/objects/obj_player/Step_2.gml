@@ -46,7 +46,7 @@ switch (sprite_index)
 		
 	break;
 	
-	case spr_character_boost:
+	case spr_character_boost_old:
 	
 		_new_flame_particle = instance_create_layer(x, y, "Stage", obj_particle_manager);
 		_new_flame_particle.owner = self;
@@ -64,7 +64,7 @@ switch (sprite_index)
 		
 	break;
 	
-	case spr_character_idle:
+	case spr_character_idle_old:
 	
 		if (obj_game_manager.current_game_state == GAME_STATE.TUTORIAL)
 		{
