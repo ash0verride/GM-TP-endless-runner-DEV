@@ -18,8 +18,8 @@
     {"resourceType":"GMPSEmitter","resourceVersion":"1.0","name":"Air","additiveBlend":false,"directionIncrease":0.0,"directionMax":0.0,"directionMin":0.0,"directionWiggle":0.0,"distribution":0,"editorColour":16777215,"editorDrawShape":true,"emitCount":2,"emitDelayMax":0.0,"emitDelayMin":0.0,"emitDelayUnits":0,"emitIntervalMax":1.0,"emitIntervalMin":1.0,"emitIntervalUnits":0,"enabled":false,"endColour":1761607680,"GMPresetName":"","gravityDirection":0.0,"gravityForce":0.0,"headPosition":0.0,"lifetimeMax":50.0,"lifetimeMin":30.0,"linkedEmitter":null,"locked":false,"midColour":1714823110,"mode":1,"orientationIncrease":0.0,"orientationMax":0.0,"orientationMin":0.0,"orientationRelative":false,"orientationWiggle":0.0,"regionH":1.0,"regionW":1.0,"regionX":0.0,"regionY":0.0,"scaleX":1.2,"scaleY":1.2,"shape":1,"sizeIncrease":0.07,"sizeMax":1.0,"sizeMin":1.4,"sizeWiggle":0.0,"spawnOnDeathCount":0,"spawnOnDeathGMPreset":null,"spawnOnDeathId":null,"spawnOnUpdateCount":0,"spawnOnUpdateGMPreset":null,"spawnOnUpdateId":null,"speedIncrease":-0.5,"speedMax":0.1,"speedMin":0.11,"speedWiggle":0.0,"spriteAnimate":false,"spriteId":null,"spriteRandom":false,"spriteStretch":true,"startColour":2298478592,"texture":8,},
   ],
   "parent": {
-    "name": "Particle Systems",
-    "path": "folders/Particle Systems.yy",
+    "name": "Player",
+    "path": "folders/Particle Systems/Player.yy",
   },
   "showBackdrop": true,
   "showBackdropImage": false,

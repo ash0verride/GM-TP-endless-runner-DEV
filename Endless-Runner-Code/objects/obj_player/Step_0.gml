@@ -24,19 +24,23 @@ if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 				has_jumped = true;
 				y_velo += jump_strength * _delta_time;
 			
-				if (current_player_state == PLAYER_STATE.RUN || current_player_state == PLAYER_STATE.IDLE)
+				if (current_player_state == PLAYER_STATE.RUN)
 				{
-					if (current_player_state != PLAYER_STATE.IDLE)
-					{
-						current_player_state = PLAYER_STATE.IDLE;
-						sprite_index = spr_character_idle;
-						image_index = 0;
+					current_player_state = PLAYER_STATE.IDLE;
+					sprite_index = spr_character_idle;
+					image_index = 0;
 					
-						var _dust_particle = instance_create_layer(x, y + 80, "Stage", obj_particle_manager);
-						_dust_particle.set_particle(ps_dust_small, "StageFrontEffects");
-						_dust_particle.move_rate = 0;
-						_dust_particle.drag_rate = 0.05;
-					}
+					var _new_flame_particle = instance_create_layer(x, y, "Stage", obj_particle_manager);
+					//_new_flame_particle.owner = self;
+					_new_flame_particle.set_particle(ps_inital_jump_flame, "StageBackEffects");
+					_new_flame_particle.set_offset(0, 100);
+					_new_flame_particle.move_rate = 0;
+					_new_flame_particle.drag_rate = 0.05;
+					
+					var _dust_particle = instance_create_layer(x, y + 80, "Stage", obj_particle_manager);
+					_dust_particle.set_particle(ps_dust_small, "StageFrontEffects");
+					_dust_particle.move_rate = 0;
+					_dust_particle.drag_rate = 0.05;
 				}
 				else if (y_velo > jump_threshold)
 				{
@@ -62,6 +66,10 @@ if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 			
 				if (boost_cooldown <= 0)
 				{
+					var _new_aura_particle = instance_create_layer(x, y, "Stage", obj_particle_manager);
+					_new_aura_particle.owner = self;
+					_new_aura_particle.set_particle(ps_powerup_out, "StageFrontEffects");
+					
 					is_boosting = false;
 					boost_cooldown = 0;
 				}

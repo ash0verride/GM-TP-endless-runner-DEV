@@ -1,7 +1,7 @@
 {
   "resourceType": "GMParticleSystem",
   "resourceVersion": "1.0",
-  "name": "ps_flame_stop",
+  "name": "ps_inital_jump_flame",
   "backdropHeight": 768,
   "backdropImageOpacity": 0.5,
   "backdropImagePath": "",
@@ -20,8 +20,8 @@
     {"resourceType":"GMPSEmitter","resourceVersion":"1.0","name":"fire P","additiveBlend":true,"directionIncrease":0.7,"directionMax":300.0,"directionMin":299.0,"directionWiggle":0.0,"distribution":0,"editorColour":1090519039,"editorDrawShape":true,"emitCount":6,"emitDelayMax":0.0,"emitDelayMin":0.0,"emitDelayUnits":0,"emitIntervalMax":1.0,"emitIntervalMin":1.0,"emitIntervalUnits":0,"enabled":true,"endColour":442761186,"GMPresetName":null,"gravityDirection":0.0,"gravityForce":0.1,"headPosition":0.0,"lifetimeMax":50.0,"lifetimeMin":10.0,"linkedEmitter":null,"locked":false,"midColour":2533337384,"mode":1,"orientationIncrease":0.0,"orientationMax":30.0,"orientationMin":30.0,"orientationRelative":false,"orientationWiggle":0.0,"regionH":1.0,"regionW":30.0,"regionX":6.0,"regionY":0.0,"scaleX":0.1,"scaleY":0.1,"shape":0,"sizeIncrease":0.0,"sizeMax":0.8,"sizeMin":0.1,"sizeWiggle":0.0,"spawnOnDeathCount":1,"spawnOnDeathGMPreset":null,"spawnOnDeathId":null,"spawnOnUpdateCount":1,"spawnOnUpdateGMPreset":null,"spawnOnUpdateId":null,"speedIncrease":0.0,"speedMax":2.0,"speedMin":1.0,"speedWiggle":0.0,"spriteAnimate":false,"spriteId":null,"spriteRandom":false,"spriteStretch":true,"startColour":2197552952,"texture":7,},
   ],
   "parent": {
-    "name": "Particle Systems",
-    "path": "folders/Particle Systems.yy",
+    "name": "Player",
+    "path": "folders/Particle Systems/Player.yy",
   },
   "showBackdrop": true,
   "showBackdropImage": false,

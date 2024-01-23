@@ -21,8 +21,8 @@
     {"resourceType":"GMPSEmitter","resourceVersion":"1.0","name":"Air_Texture2","additiveBlend":false,"directionIncrease":0.2,"directionMax":270.0,"directionMin":270.0,"directionWiggle":0.0,"distribution":1,"editorColour":1090519039,"editorDrawShape":true,"emitCount":1,"emitDelayMax":0.0,"emitDelayMin":0.0,"emitDelayUnits":0,"emitIntervalMax":0.0,"emitIntervalMin":0.0,"emitIntervalUnits":0,"enabled":false,"endColour":1963457279,"GMPresetName":null,"gravityDirection":270.0,"gravityForce":0.0,"headPosition":0.0,"lifetimeMax":20.0,"lifetimeMin":17.0,"linkedEmitter":null,"locked":false,"midColour":2030021703,"mode":1,"orientationIncrease":0.0,"orientationMax":0.0,"orientationMin":0.0,"orientationRelative":false,"orientationWiggle":0.0,"regionH":1.0,"regionW":20.0,"regionX":-1.0,"regionY":0.0,"scaleX":0.5,"scaleY":1.1,"shape":0,"sizeIncrease":0.0,"sizeMax":1.0,"sizeMin":0.7,"sizeWiggle":0.0,"spawnOnDeathCount":1,"spawnOnDeathGMPreset":null,"spawnOnDeathId":null,"spawnOnUpdateCount":1,"spawnOnUpdateGMPreset":null,"spawnOnUpdateId":null,"speedIncrease":0.0,"speedMax":1.0,"speedMin":7.0,"speedWiggle":0.0,"spriteAnimate":false,"spriteId":{"name":"Air_2","path":"sprites/Air_2/Air_2.yy",},"spriteRandom":false,"spriteStretch":true,"startColour":3590320434,"texture":-1,},
   ],
   "parent": {
-    "name": "Particle Systems",
-    "path": "folders/Particle Systems.yy",
+    "name": "Player",
+    "path": "folders/Particle Systems/Player.yy",
   },
   "showBackdrop": true,
   "showBackdropImage": false,

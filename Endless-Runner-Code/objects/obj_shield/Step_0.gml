@@ -21,6 +21,10 @@ if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 
 	if (life <= 0 && sprite_index != spr_shield_off)
 	{
+		var _new_aura_particle = instance_create_layer(obj_player.x, obj_player.y, "Stage", obj_particle_manager);
+		_new_aura_particle.owner = obj_player;
+		_new_aura_particle.set_particle(ps_powerup_out, "StageFrontEffects");
+		
 		sprite_index = spr_shield_off;
 		image_index = 0;
 	}

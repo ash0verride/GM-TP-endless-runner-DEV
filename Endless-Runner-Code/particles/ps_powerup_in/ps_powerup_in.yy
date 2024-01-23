@@ -1,7 +1,7 @@
 {
   "resourceType": "GMParticleSystem",
   "resourceVersion": "1.0",
-  "name": "MC_Powerups_In",
+  "name": "ps_powerup_in",
   "backdropHeight": 768,
   "backdropImageOpacity": 0.5,
   "backdropImagePath": "",
@@ -15,8 +15,8 @@
     {"resourceType":"GMPSEmitter","resourceVersion":"1.0","name":"SpeedLines","additiveBlend":true,"directionIncrease":0.0,"directionMax":360.0,"directionMin":0.0,"directionWiggle":0.0,"distribution":0,"editorColour":16777215,"editorDrawShape":true,"emitCount":25,"emitDelayMax":0.0,"emitDelayMin":0.0,"emitDelayUnits":0,"emitIntervalMax":1.0,"emitIntervalMin":1.0,"emitIntervalUnits":0,"enabled":true,"endColour":1392505415,"GMPresetName":"","gravityDirection":0.0,"gravityForce":0.0,"headPosition":0.0,"lifetimeMax":20.0,"lifetimeMin":0.0,"linkedEmitter":null,"locked":false,"midColour":2029990593,"mode":1,"orientationIncrease":0.0,"orientationMax":207.0,"orientationMin":330.0,"orientationRelative":true,"orientationWiggle":0.0,"regionH":1.0,"regionW":1.0,"regionX":0.0,"regionY":0.0,"scaleX":0.2,"scaleY":1.5,"shape":1,"sizeIncrease":-0.8,"sizeMax":10.05,"sizeMin":-13.1,"sizeWiggle":0.0,"spawnOnDeathCount":0,"spawnOnDeathGMPreset":null,"spawnOnDeathId":null,"spawnOnUpdateCount":0,"spawnOnUpdateGMPreset":null,"spawnOnUpdateId":null,"speedIncrease":0.0,"speedMax":1.0,"speedMin":-3.0,"speedWiggle":0.0,"spriteAnimate":false,"spriteId":null,"spriteRandom":false,"spriteStretch":true,"startColour":1862249778,"texture":8,},
   ],
   "parent": {
-    "name": "Particle Systems",
-    "path": "folders/Particle Systems.yy",
+    "name": "Collectables",
+    "path": "folders/Particle Systems/Collectables.yy",
   },
   "showBackdrop": true,
   "showBackdropImage": false,

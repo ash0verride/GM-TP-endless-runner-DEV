@@ -14,7 +14,7 @@ switch (current_player_state)
 		_new_flame_particle = instance_create_layer(x, y, "Stage", obj_particle_manager);
 		_new_flame_particle.owner = self;
 		_new_flame_particle.set_particle(ps_long_press_flame, "StageBackEffects");
-		_new_flame_particle.set_offset(0, 90);
+		_new_flame_particle.set_offset(5, 95);
 		
 		_new_smoke_particle = instance_create_layer(x, y, "Stage", obj_particle_manager);
 		_new_smoke_particle.move_rate = 0.0;
@@ -38,7 +38,7 @@ switch (current_player_state)
 		_new_flame_particle = instance_create_layer(x, y, "Stage", obj_particle_manager);
 		_new_flame_particle.owner = self;
 		_new_flame_particle.set_particle(ps_short_press_flame, "StageBackEffects");
-		_new_flame_particle.set_offset(0, 90);
+		_new_flame_particle.set_offset(5, 95);
 		
 		_new_smoke_particle = instance_create_layer(x, y, "Stage", obj_particle_manager);
 		_new_smoke_particle.move_rate = 0.0;
