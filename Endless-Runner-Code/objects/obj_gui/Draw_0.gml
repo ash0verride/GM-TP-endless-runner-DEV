@@ -1,6 +1,6 @@
 if (obj_game_manager.current_game_state == GAME_STATE.TUTORIAL)
 {
-	image_alpha = 0;	
+	image_alpha = 0;
 }
 else
 {

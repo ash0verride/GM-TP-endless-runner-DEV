@@ -3,7 +3,7 @@ has_panel = true;
 
 if (!variable_global_exists("is_muted"))
 {
-    global.is_muted = true;
+    global.is_muted = false;
 }
 
 if (global.is_muted)

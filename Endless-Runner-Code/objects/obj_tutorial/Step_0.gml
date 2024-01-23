@@ -152,3 +152,22 @@ switch (tip_type)
 		instance_destroy();
 		break;
 }
+
+if (keyboard_check_pressed(vk_escape))
+{
+	obj_game_manager.current_game_state = GAME_STATE.PLAYING;
+		
+		audio_sound_gain(global.music, 1.0, 2000);
+		audio_sound_pitch(global.music, 1.0);
+		
+		layer_sequence_create("Stage", 0, 0, seq_gm_layout);
+		
+		if (global.highscore != 0)
+		{
+			var _flag = instance_create_layer(640 + real(global.highscore) * 60, 950, "StageBack", obj_flag_marker);
+			_flag.has_dropped = true;
+			_flag.flag_distance = global.highscore;
+		}
+		
+		instance_destroy();	
+}

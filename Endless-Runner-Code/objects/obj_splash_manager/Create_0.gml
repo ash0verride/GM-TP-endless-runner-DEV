@@ -56,5 +56,5 @@ if (!variable_global_exists("highscore"))
 // Check if game has been played this session
 if (!variable_global_exists("times_played"))
 {
-	global.times_played = 1;
+	global.times_played = 0;
 }
