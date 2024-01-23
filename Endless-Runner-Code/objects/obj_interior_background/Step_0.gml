@@ -141,6 +141,8 @@ if (obj_game_manager.current_game_state != GAME_STATE.PAUSED)
 					break;
 				case INTERIOR_STATE.OUTSIDE:
 					set_ground_sprites[_i] = ground_sprite[3 + (_i % 3)];
+					var _handle = choose(flower_set_1, flower_set_2, flower_set_3, flower_set_4);
+					_handle(ground_x_coords[_i] + 512 * ground_segment_count, ground_y_coords);
 					break;
 			}
 		

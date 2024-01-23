@@ -91,4 +91,46 @@ change_interior_state = function()
 	}
 }
 
+flower_set_1 = function(_x, _y)
+{
+	var _flower_1 = instance_create_layer(_x + random_range(268, 500), _y + random_range(200, 230), "Flowers", obj_flower);
+	_flower_1.sprite_index = spr_flower_1;
+	
+	var _flower_2 = instance_create_layer(_x + random_range(12, 246), _y + random_range(220, 250), "Flowers", obj_flower);
+	_flower_2.sprite_index = spr_flower_2;
+}
+
+flower_set_2 = function(_x, _y)
+{
+	var _flower_1 = instance_create_layer(_x + random_range(268, 500), _y + random_range(200, 230), "Flowers", obj_flower);
+	_flower_1.sprite_index = spr_flower_1;
+	
+	var _flower_3 = instance_create_layer(_x + random_range(12, 246), _y + random_range(200, 250), "Flowers", obj_flower);
+	_flower_3.sprite_index = spr_flower_3;
+}
+
+flower_set_3 = function(_x, _y)
+{
+	var _flower_2 = instance_create_layer(_x + random_range(12, 246), _y + random_range(220, 250), "Flowers", obj_flower);
+	_flower_2.sprite_index = spr_flower_2;
+	
+	var _flower_3 = instance_create_layer(_x + random_range(268, 500), _y + random_range(200, 250), "Flowers", obj_flower);
+	_flower_3.sprite_index = spr_flower_3;
+}
+
+flower_set_4 = function(_x, _y)
+{
+	var _flower_2 = instance_create_layer(_x + random_range(268, 500), _y + random_range(220, 250), "Flowers", obj_flower);
+	_flower_2.sprite_index = spr_flower_2;
+	
+	var _flower_3 = instance_create_layer(_x + random_range(12, 246), _y + random_range(200, 250), "Flowers", obj_flower);
+	_flower_3.sprite_index = spr_flower_3;
+}
+
+for (var _i = 0; _i < ground_segment_count; _i++)
+{
+	var _handle = choose(flower_set_1, flower_set_2, flower_set_3, flower_set_4);
+	_handle(ground_x_coords[_i], ground_y_coords);
+}
+
 obj_game_manager.has_prefetched = true;
