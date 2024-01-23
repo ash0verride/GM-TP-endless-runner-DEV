@@ -2,7 +2,7 @@ fauna_count = 2;
 
 x_coords = array_create(fauna_count, 0);
 set_sprites = array_create(fauna_count, -1);
-set_alphas = array_create(fauna_count, 0.8);
+set_alphas = array_create(fauna_count, 1.0);
 
 sprite[0] = spr_foreground_celing_1;
 

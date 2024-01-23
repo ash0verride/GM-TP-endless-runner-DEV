@@ -16,5 +16,5 @@ for (var _i = 0; _i < pipe_segment_count; _i++)
 
 for (var _i = 0; _i < ground_segment_count; _i++)
 {
-	draw_sprite(set_ground_sprites[_i], 0, ground_x_coords[_i], ground_y_coords);	
+	draw_sprite(set_ground_sprites[_i], 0, ground_x_coords[_i], ground_y_coords);
 }
