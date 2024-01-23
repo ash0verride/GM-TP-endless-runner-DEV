@@ -1,8 +1,9 @@
-if (sprite_index == spr_character_death)
+if (current_player_state == PLAYER_STATE.DEATH)
 {
 	image_alpha = 0;
 }
-else if (sprite_index == spr_character_idle_old)
+else if (current_player_state == PLAYER_STATE.IDLE)
 {
-	sprite_index = spr_character_fly_small;
+	current_player_state = PLAYER_STATE.FLY_SMALL;
+	sprite_index = spr_character_idle;
 }

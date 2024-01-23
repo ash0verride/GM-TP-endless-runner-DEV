@@ -20,7 +20,7 @@ audio_stop_all();
 global.music = audio_play_sound(snd_music_menu, 100, true, 1.0);
 
 // Check for highscore variable
-if (!variable_global_exists("is_muted"))
+if (!variable_global_exists("highscore"))
 {
     // Create empty variable for highscore
 	global.highscore = 0;
@@ -56,5 +56,5 @@ if (!variable_global_exists("is_muted"))
 // Check if game has been played this session
 if (!variable_global_exists("times_played"))
 {
-	global.times_played = 0;
+	global.times_played = 1;
 }

@@ -3,6 +3,19 @@ y = 840;
 
 ystart = y;
 
+enum PLAYER_STATE
+{
+	IDLE,
+	RUN,
+	FLY_SMALL,
+	FLY_BIG,
+	FLY_RELEASED,
+	BOOST,
+	DEATH
+}
+
+current_player_state = PLAYER_STATE.RUN;
+
 jump_strength = 110;
 jump_threshold = 10;
 gravity_strength = 0.8;
@@ -37,14 +50,14 @@ kill_player = function()
 			
 			var _boom_particle = instance_create_layer(x, y, "Stage", obj_particle_manager);
 			_boom_particle.owner = self;
-			_boom_particle.set_particle(ps_defeat, "StageBackEffects");
+			_boom_particle.set_particle(ps_defeat, "StageEffects");
 		
 			var _player = self;
 			with (obj_shadow)
 			{
 				if (owner == _player)
 				{
-					fade_out(1.83);	
+					fade_out(2.0);	
 				}
 			}
 		}
