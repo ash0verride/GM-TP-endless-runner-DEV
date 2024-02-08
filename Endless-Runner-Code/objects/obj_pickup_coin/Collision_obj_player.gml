@@ -1,11 +1,6 @@
 // Checks if the coins current sprite not collected
 if (sprite_index == spr_coin_idle)
-{
-	//// Changes the sprite to the collected animation
-	//sprite_index = spr_coin_colleting;
-	//// Sets the sprite for the collecting animation to a random angle
-	//image_angle = random(360);
-	
+{	
 	// Creates a new gui coin object
 	var _gui_coin = instance_create_layer(x, y, "StageFront", obj_coin_gui);
 	
@@ -19,5 +14,6 @@ if (sprite_index == spr_coin_idle)
 	// Sets the gui coin object to store the particle object it is attached to
 	_gui_coin.child_particle = _coin_particle;
 	
+	// Destroys the coin pickup
 	instance_destroy();
 }

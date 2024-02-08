@@ -1,3 +1,4 @@
+// Keeps count of how many bushes can be created
 fauna_count = 5;
 
 x_coords = array_create(fauna_count, 0);
